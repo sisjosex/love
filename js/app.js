@@ -49,6 +49,16 @@ module.controller('SliderController', function($scope) {
     });
 });
 
+function next() {
+
+    mainSlider.next();
+}
+
+function prev() {
+
+    mainSlider.prev();
+}
+
 function onSliderIMGLoad(img, index) {
 
     var src = $(img).attr('src');
@@ -115,4 +125,33 @@ function onSliderIMGLoad(img, index) {
 
         container.addClass('opaque');
     }
+}
+
+function shareViaInstagram(txt, url) {
+
+    Instagram.isInstalled(function (err, installed) {
+
+        if (installed) {
+
+            convertImgToBase64(url, function(data64){
+
+                Instagram.share(data64, txt, function (err) {
+
+                    if (err) {
+
+                        showAlert("No se Pudo Compartir", "Mensaje", "Aceptar");
+
+                    } else {
+
+                        showAlert("Se compartió exitosamente", "Aviso", "Aceptar");
+                    }
+                });
+
+            });
+
+        } else {
+
+            console.log("Instagram no esta instalado");
+        }
+    });
 }

@@ -43,14 +43,14 @@
                         
                         <div class="auto"><img src="img/header-1.jpg" /></div>
                         <div class="navigation">
-                            <div class="button nobutton"><img src="img/app/cruz.png"></div>
-                            <div class="button nobutton"><img src="img/app/corazon.png"></div>
+                            <div class="button nobutton" onclick="prev()"><img src="img/app/cruz.png"></div>
+                            <div class="button nobutton" onclick="next()"><img src="img/app/corazon.png"></div>
                         </div>
                         <div class="redes">
-                            <div class="button nobutton"><img src="img/app/facebook.png"></div>
-                            <div class="button nobutton"><img src="img/app/twitter.png"></div>
-                            <div class="button nobutton"><img src="img/app/twitter.png"></div>
-                            <div class="button nobutton"><img src="img/app/instagram.png"></div>
+                            <div class="button nobutton" onclick="window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint('Message via Facebook', null /* img */, null /* url */, 'Paste it dude!', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><img src="img/app/facebook.png"></div>
+                            <div class="button nobutton" onclick="window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null /* img */, 'http://www.x-services.nl')"><img src="img/app/twitter.png"></div>
+                            <div class="button nobutton" onclick="window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null /* img */, 'http://www.x-services.nl')"><img src="img/app/twitter.png"></div>
+                            <div class="button nobutton" onclick="shareViaInstagram('Message', 'img/app/instagram.png')"><img src="img/app/instagram.png"></div>
                         </div>
                     </div>
                 </div>
