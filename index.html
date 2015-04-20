@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <title>Love - Mitica</title>
+
+    <link rel="stylesheet" href="lib/onsen/css/onsenui.css">
+    <link rel="stylesheet" href="styles/onsen-css-components-blue-basic-theme.css">
+    <link rel="stylesheet" href="styles/app.css"/>
+
+    <script src="lib/onsen/js/angular/angular.js"></script>
+    <script src="lib/onsen/js/onsenui.js"></script>
+
+    <script src="lib/jquery1.7.1.min.js"></script>
+
+    <script src="cordova.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/app.js"></script>
+
+</head>
+<body>
+
+<ons-modal var="modal">
+    <ons-icon icon="ion-loading-c" spin="true"></ons-icon>
+</ons-modal>
+
+<ons-navigator animation="slide" var="mainnavigator">
+    <ons-page ng-controller="NavigatorController">
+
+    </ons-page>
+</ons-navigator>
+
+<ons-template id="slider.html">
+    <ons-page ng-controller="SliderController" id="sliderPage">
+        <ons-carousel swipeable overscrollable auto-scroll fullscreen var="mainSlider">
+            <ons-carousel-item class="item-bg loading">
+                <div class="slide-content">
+                    <div class="slide-border">
+                        <div class="title"><h1>Love <span class="rojo">--- Mitica</span></h1></div>
+                        
+                        <div class="auto"><img src="img/header-1.jpg" /></div>
+                        <div class="navigation">
+                            <div class="button nobutton"><img src="img/app/cruz.png"></div>
+                            <div class="button nobutton"><img src="img/app/corazon.png"></div>
+                        </div>
+                        <div class="redes">
+                            <div class="button nobutton"><img src="img/app/facebook.png"></div>
+                            <div class="button nobutton"><img src="img/app/twitter.png"></div>
+                            <div class="button nobutton"><img src="img/app/twitter.png"></div>
+                            <div class="button nobutton"><img src="img/app/instagram.png"></div>
+                        </div>
+                    </div>
+                </div>
+            </ons-carousel-item>
+            <ons-carousel-item class="item-bg loading">
+                <ons-icon icon="ion-loading-c" spin="true" class="ons-icon ons-icon--ion ion-loading-c fa-lg"></ons-icon>
+                <div class="full-screen animate"><img onload="onSliderIMGLoad(this, 0);" src="img/img1.jpg" /></div>
+                <div class="title">Titulo</div>
+            </ons-carousel-item>
+            <!--
+            <ons-carousel-cover>
+                <div class="cover-label">Swipe left or right {{status}}</div>
+            </ons-carousel-cover>
+            -->
+        </ons-carousel>
+    </ons-page>
+</ons-template>
+
+</body>
+</html>
