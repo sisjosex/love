@@ -3,6 +3,11 @@ var module = ons.bootstrap();
 angular.module('MyApp', []);
 
 module.controller('NavigatorController', function($scope) {
+
+    try {
+        StatusBar.hide();
+    }catch(error){}
+
     ons.ready(function() {
         mainnavigator.pushPage('slider.html', {animation: 'none'});
     });
@@ -43,6 +48,8 @@ module.controller('SliderController', function($scope) {
                 console.log(scrollDirection + ' ' + totalPoints);
 
             });
+
+            try { navigator.splashscreen.hide(); } catch(error){}
 
         }, 100);
 
