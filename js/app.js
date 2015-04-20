@@ -162,3 +162,14 @@ function shareViaInstagram(txt, url) {
         }
     });
 }
+
+function sendContactEmail(to, subject, body) {
+
+    window.plugin.email.open({
+        to:      ['max.mustermann@appplant.de'],
+        //cc:      [''],
+        //bcc:     ['', ''],
+        subject: subject,
+        body: body
+    });
+}
