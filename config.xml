@@ -82,6 +82,12 @@
     <!-- Instagram -->
     <gap:plugin name="com.vladstirbu.cordova.instagram" />
 
+    <!-- Email -->
+    <gap:plugin name="de.appplant.cordova.plugin.email-composer" version="0.8.2" />
+
+    <!-- Network Status -->
+    <gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
+
     <plugins>
         <plugin name="InAppBrowser" value="CDVInAppBrowser" />
     </plugins>

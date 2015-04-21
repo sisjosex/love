@@ -16,6 +16,8 @@ module.controller('NavigatorController', function($scope) {
 var totalPoints = 0;
 var scrollDirection = '';
 var SlideController;
+var sliderData = [];
+var isOnline = true;
 module.controller('SliderController', function($scope) {
 
     SlideController = $scope;
@@ -28,33 +30,110 @@ module.controller('SliderController', function($scope) {
 
         setTimeout(function(){
 
+            if(isOnline) {
+
+                getJsonP(API_URL + 'obtenerPantallas/', renderPantallas, function () {
+
+                    try {
+                        navigator.splashscreen.hide();
+                    } catch (error) {
+                    }
+
+                }, function() {
+
+                    loadOffine();
+
+                }, {});
+
+            } else {
+
+                loadOffline();
+            }
+
             mainSlider.on('postchange', function(event) {
 
-                if(event.activeIndex > event.lastActiveIndex) {
+                if(event.activeIndex != sliderData.pantallas.length) {
 
-                    totalPoints ++;
+                    if (event.activeIndex > event.lastActiveIndex) {
 
-                    scrollDirection = 'right';
+                        totalPoints++;
+
+                        scrollDirection = 'right';
+
+                    } else {
+
+                        scrollDirection = 'left';
+                    }
+
+                    SlideController.status = totalPoints;
+
+                    SlideController.$apply();
+
+                    console.log(scrollDirection + ' ' + totalPoints);
 
                 } else {
 
-                    scrollDirection = 'left';
+                    var porcentajeCoincidencias = totalPoints/sliderData.pantallas.length;
+                    var textoFinal;
+                    var imagenFinal;
+
+                    if(porcentajeCoincidencias <= 0.25) {
+
+                        textoFinal = sliderData.config.texto_final1;
+                        imagenFinal = sliderData.config.imagen_final1;
+
+                    } else if(porcentajeCoincidencias <= 0.70){
+
+                        textoFinal = sliderData.config.texto_final2;
+                        imagenFinal = sliderData.config.imagen_final2;
+
+                    } else {
+
+                        textoFinal = sliderData.config.texto_final3;
+                        imagenFinal = sliderData.config.imagen_final3;
+                    }
+
+                    $('#ultimoContenido').html(textoFinal);
+                    $('#ultimoFondo').attr('src', imagenFinal);
+
+                    $('#ultimoFacebook').unbind('click').on('click', function(event){
+
+                        shareViaFacebook(sliderData.config.texto_facebook);
+
+                    });
+
+                    $('#ultimoFacebook').unbind('click').on('click', function(event){
+
+                        shareViaTwitter(sliderData.config.texto_twitter1);
+
+                    });
+
+                    $('#ultimoFacebook').unbind('click').on('click', function(event){
+
+                        shareViaTwitter(sliderData.config.texto_twitter2);
+
+                    });
+
+                    $('#ultimoFacebook').unbind('click').on('click', function(event){
+
+                        shareViaInstagram(sliderData.config.texto_instagram);
+
+                    });
+
+                    $('#ultimoEmail').unbind('click').on('click', function(event){
+
+                        contactEmail( sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body );
+
+                    });
                 }
 
-                SlideController.status = totalPoints;
-
-                SlideController.$apply();
-
-                console.log(scrollDirection + ' ' + totalPoints);
-
             });
-
-            try { navigator.splashscreen.hide(); } catch(error){}
 
         }, 100);
 
     });
 });
+
 
 function next() {
 
@@ -64,6 +143,34 @@ function next() {
 function prev() {
 
     mainSlider.prev();
+}
+
+function loadOffline() {
+
+    getJson(window.location.href.replace('index.html', 'config.json'), renderPantallas, function () {
+
+        try {
+            navigator.splashscreen.hide();
+        } catch (error) {
+        }
+
+    }, function() {
+
+
+    }, {});
+}
+
+function renderPantallas(data) {
+
+    sliderData = data;
+
+    loadIntoTemplate('#sliderContainer', data.pantallas, 'slide');
+
+    loadIntoTemplateSingle('#sliderContainer', data.config, 'ultimo_slide');
+
+    ons.compile($('#sliderContainer')[0]);
+
+    try { navigator.splashscreen.hide(); } catch(error){}
 }
 
 function onSliderIMGLoad(img, index) {
@@ -161,4 +268,50 @@ function shareViaInstagram(txt, url) {
             console.log("Instagram no esta instalado");
         }
     });
+}
+
+function shareViaFacebook(txt) {
+
+    window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(txt, null /* img */, null /* url */, 'Paste it!', function() {
+
+        console.log('share ok');
+
+    }, function(errormsg){
+
+        alert(errormsg);
+
+    });
+}
+
+function shareViaTwitter(txt) {
+
+    window.plugins.socialsharing.shareViaTwitter(txt, null /* img */);
+}
+
+function contactEmail(email, subject, body) {
+
+    cordova.plugins.email.isAvailable(
+        function (isAvailable) {
+
+            cordova.plugins.email.open({
+                to:      email,
+                /*cc:      'erika@mustermann.de',
+                bcc:     ['john@doe.com', 'jane@doe.com'],*/
+                subject: subject,
+                body:    body,
+                isHtml:  true
+            });
+        }
+    );
+}
+
+document.addEventListener("offline", onOffline, false);
+document.addEventListener("online", onOnline, false);
+
+function onOnline() {
+    isOnline = true;
+}
+
+function onOffline() {
+    isOnline = false;
 }

@@ -88,6 +88,10 @@ ons-carousel-item {
 	height:auto;
 }
 
+.title img {
+	max-height:80px;
+}
+
 .navigation {
 	margin-top: 40px;
 }
@@ -148,4 +152,17 @@ ons-carousel-item {
 	left: 0;
 	right: 0;
 	bottom: 0;
+}
+
+#ultimoContenido * {
+	font-family: "Gotham-Medium";
+}
+
+.email-section {
+
+}
+
+.email-section img {
+	max-height:50px;
+	width:auto;
 }

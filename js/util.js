@@ -85,7 +85,37 @@ function getJsonP(url, callback_success, callback_error, data) {
         url: url,
         data: data,
         dataType: 'JSONp',
-        timeout: 30000,
+        timeout: 10000,
+        async:true,
+        success: function(data) {
+
+            modal.hide();
+
+            callback_success(data);
+        },
+        error: function(data) {
+
+            modal.hide();
+
+            callback_error(data);
+        }
+    });
+}
+
+function getJson(url, callback_success, callback_error, data) {
+
+    if(data === undefined) {
+        data = {};
+    }
+
+    modal.show();
+
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data: data,
+        dataType: 'JSONp',
+        timeout: 10000,
         async:true,
         success: function(data) {
 
@@ -114,7 +144,7 @@ function getJsonPBackground(url, callback_success, callback_error, data) {
         url: url,
         data: data,
         dataType: 'JSONp',
-        timeout: 30000,
+        timeout: 10000,
         async:true,
         success: function(data) {
 

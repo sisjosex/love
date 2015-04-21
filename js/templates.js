@@ -1,8 +1,42 @@
 var templates = {
-    slider: '<ons-carousel-item class="item-bg loading">'+
-    '<ons-icon icon="ion-loading-c" spin="true" class="ons-icon ons-icon--ion ion-loading-c fa-lg"></ons-icon>'+
-    '<div class="full-screen animate"><img onload="onSliderIMGLoad(this, %index%);" src="%image%" /></div>'+
-    '<div class="title">%title%</div>'+
+    slide: '' +
+    '<ons-carousel-item class="item-bg loading">' +
+    '<div class="slide-content">' +
+    '<div class="slide-border">' +
+    '<div class="title"><img src="%logo%" /></div>' +
+    '<div class="auto"><img src="%imagen%" /></div>' +
+    '<div class="navigation">' +
+    '<div class="button nobutton" onclick="prev()"><img src="img/app/cruz.png"></div>' +
+    '<div class="button nobutton" onclick="next()"><img src="img/app/corazon.png"></div>' +
+    '</div>' +
+    '<div class="redes">' +
+    '<div class="button nobutton" onclick="shareViaFacebook(\'%texto_facebook%\')"><img src="img/app/facebook.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter1%\')"><img src="img/app/twitter.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter2%\')"><img src="img/app/twitter.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaInstagram(\'%texto_instagram%\')"><img src="img/app/instagram.png"></div>' +
+    '</div>' +
+    '</div>' +
+    '</div>' +
+    '</ons-carousel-item>',
+
+    ultimo_slide: '<ons-carousel-item class="item-bg loading">' +
+    '<ons-icon icon="ion-loading-c" spin="true" class="ons-icon ons-icon--ion ion-loading-c fa-lg"></ons-icon>' +
+    '<div class="full-screen animate"><img id="ultimoFondo" onload="onSliderIMGLoad(this, 0);" src="" /></div>' +
+    '<div class="slide-content">' +
+    '<div class="slide-border">' +
+    '<div class="title" style="height:50px;"></div>' +
+    '<div class="auto" style="margin-top: 34%;">' +
+    '<div id="ultimoContenido"></div>' +
+    '<div class="email-section"><div class="button nobutton" id="ultimoEmail"><img src="img/app/email.png"></div></div>' +
+    '</div>' +
+    '<div class="redes animate-all">' +
+    '<div class="button nobutton" id="ultimoFacebook"><img src="img/app/facebook.png"></div>' +
+    '<div class="button nobutton" id="ultimoTwitter1"><img src="img/app/twitter.png"></div>' +
+    '<div class="button nobutton" id="ultimoTwitter2"><img src="img/app/twitter.png"></div>' +
+    '<div class="button nobutton" id="ultimoInstagram"><img src="img/app/instagram.png"></div>' +
+    '</div>' +
+    '</div>' +
+    '</div>' +
     '</ons-carousel-item>'
 };
 
@@ -11,29 +45,29 @@ function loadIntoTemplate(div, data, template, labels, height) {
     var container = $(div);
     var content = '', cal = '', str = '';
 
-    for(var i in data) {
+    for (var i in data) {
 
         cal = data[i];
         var str = templates[template].replaceAll('%index%', i);
 
-        for(var j in cal) {
+        for (var j in cal) {
 
-            if(j != 'items') {
+            if (j != 'items') {
                 str = str.replaceAll('%' + j + '%', cal[j]);
             }
         }
 
-        if(labels != undefined) {
+        if (labels != undefined) {
 
-            for(var j in labels) {
+            for (var j in labels) {
 
                 str = str.replaceAll('{' + j + '}', labels[j]);
             }
         }
 
-        if(data[i].images && data[i].images.length > 0) {
+        if (data[i].images && data[i].images.length > 0) {
 
-            if(height !== undefined) {
+            if (height !== undefined) {
 
                 str = str.replaceAll('%first_image%', thumb_url.replaceAll('%width%', $(window).width()).replaceAll('%height%', height) + data[i].images[0]);
 
@@ -43,7 +77,7 @@ function loadIntoTemplate(div, data, template, labels, height) {
             }
         }
 
-        if(data[i].items && data[i].items.length > 0) {
+        if (data[i].items && data[i].items.length > 0) {
 
             tmp = loadIntoTemplateReturn(data[i].items, 'list_single', labels);
 
@@ -55,7 +89,7 @@ function loadIntoTemplate(div, data, template, labels, height) {
         delete str;
     }
 
-    if(content !== '') {
+    if (content !== '') {
 
         content = $(content);
 
@@ -66,7 +100,8 @@ function loadIntoTemplate(div, data, template, labels, height) {
         try {
             ons.compile(content[0]);
 
-        } catch (error){}
+        } catch (error) {
+        }
     }
 }
 
@@ -74,27 +109,27 @@ function loadIntoTemplateReturn(data, template, labels) {
 
     var content = '', cal = '', str = '';
 
-    for(var i in data) {
+    for (var i in data) {
 
         cal = data[i];
         var str = templates[template].replaceAll('%index%', i);
 
-        for(var j in cal) {
+        for (var j in cal) {
 
             str = str.replaceAll('%' + j + '%', cal[j]);
         }
 
-        if(labels != undefined) {
+        if (labels != undefined) {
 
-            for(var j in labels) {
+            for (var j in labels) {
 
                 str = str.replaceAll('{' + j + '}', labels[j]);
             }
         }
 
-        if(data[i].images && data[i].images.length > 0) {
+        if (data[i].images && data[i].images.length > 0) {
 
-            if(height !== undefined) {
+            if (height !== undefined) {
 
                 str = str.replaceAll('%first_image%', thumb_url.replaceAll('%width%', $(window).width()).replaceAll('%height%', height) + data[i].images[0]);
 
@@ -115,22 +150,20 @@ function loadIntoTemplateReturn(data, template, labels) {
 function loadIntoTemplateSingle(div, data, template, labels) {
 
     var container = $(div);
-    var content = '', cal = '', str = '';
+    var content = '', str = '';
 
+    var str = templates[template];
 
-    cal = data[i];
-    var str = templates[template].replaceAll('%index%', i);
-
-    if(data != undefined) {
+    if (data != undefined) {
         for (var j in data) {
 
             str = str.replaceAll('%' + j + '%', data[j]);
         }
     }
 
-    if(labels != undefined) {
+    if (labels != undefined) {
 
-        for(var j in labels) {
+        for (var j in labels) {
 
             str = str.replaceAll('{' + j + '}', labels[j]);
         }
@@ -141,11 +174,11 @@ function loadIntoTemplateSingle(div, data, template, labels) {
     delete str;
 
 
-    if(content !== '') {
+    if (content !== '') {
 
         content = $(content);
 
-        container.html('');
+        //container.html('');
 
         container.append(content);
 
