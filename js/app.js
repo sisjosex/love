@@ -144,7 +144,7 @@ function verificarPuntos() {
             contactEmail(sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body);
 
         });
-    
+
 
     lastActiveIndex = mainSlider.getActiveCarouselItemIndex();
 }
