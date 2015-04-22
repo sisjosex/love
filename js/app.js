@@ -65,7 +65,7 @@ function verificarPuntos() {
 
     console.log(mainSlider.getActiveCarouselItemIndex() + ' + ' + lastActiveIndex);
 
-    if (mainSlider.getActiveCarouselItemIndex() != sliderData.pantallas.length) {
+    if (true) {
 
         if (mainSlider.getActiveCarouselItemIndex() > lastActiveIndex) {
 
@@ -88,7 +88,7 @@ function verificarPuntos() {
 
         console.log(scrollDirection + ' ' + totalPoints);
 
-    } else {
+    }
 
         var porcentajeCoincidencias = totalPoints / sliderData.pantallas.length;
         var textoFinal;
@@ -144,7 +144,7 @@ function verificarPuntos() {
             contactEmail(sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body);
 
         });
-    }
+    
 
     lastActiveIndex = mainSlider.getActiveCarouselItemIndex();
 }
