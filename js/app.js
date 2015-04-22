@@ -108,19 +108,19 @@ module.controller('SliderController', function($scope) {
 
                     });
 
-                    $('#ultimoFacebook').unbind('click').on('click', function (event) {
+                    $('#ultimoTwitter1').unbind('click').on('click', function (event) {
 
                         shareViaTwitter(sliderData.config.texto_twitter1);
 
                     });
 
-                    $('#ultimoFacebook').unbind('click').on('click', function (event) {
+                    $('#ultimoTwitter2').unbind('click').on('click', function (event) {
 
                         shareViaTwitter(sliderData.config.texto_twitter2);
 
                     });
 
-                    $('#ultimoFacebook').unbind('click').on('click', function (event) {
+                    $('#ultimoInstagram').unbind('click').on('click', function (event) {
 
                         shareViaInstagram(sliderData.config.texto_instagram);
 
