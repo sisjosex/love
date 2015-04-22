@@ -4,7 +4,7 @@ var templates = {
     '<div class="slide-content">' +
     '<div class="slide-border">' +
     '<div class="title"><img src="%logo%" /></div>' +
-    '<div class="auto animate"><img src="%imagen%" onload="onSliderIMGLoadSimple(this, 0);" /></div>' +
+    '<div class="img-slide"><div class="auto animate"><img src="%imagen%" onload="onSliderIMGLoadSimple(this, 0);" /></div><ons-icon icon="fa-spinner" spin="true" class="ons-icon ons-icon--ion ion-loading-c fa-lg"></ons-icon></div>' +
     '<div class="navigation">' +
     '<div class="button nobutton" onclick="prev()"><img src="img/app/cruz.png"></div>' +
     '<div class="button nobutton" onclick="next()"><img src="img/app/corazon.png"></div>' +
@@ -20,12 +20,12 @@ var templates = {
     '</ons-carousel-item>',
 
     ultimo_slide: '<ons-carousel-item class="item-bg loading">' +
-    '<ons-icon icon="ion-loading-c" spin="true" class="ons-icon ons-icon--ion ion-loading-c fa-lg"></ons-icon>' +
+    '<ons-icon icon="fa-spinner" spin="true" class="ons-icon ons-icon--ion ion-loading-c fa-lg"></ons-icon>' +
     '<div class="full-screen animate"><img id="ultimoFondo" onload="onSliderIMGLoad(this, 0);" src="" /></div>' +
     '<div class="slide-content">' +
     '<div class="slide-border">' +
     '<div class="title" style="height:50px;"></div>' +
-    '<div class="auto" style="margin-top: 34%;">' +
+    '<div class="" style="margin-top: 34%;">' +
     '<div id="ultimoContenido"></div>' +
     '<div class="email-section"><div class="button nobutton" id="ultimoEmail"><img src="img/app/email.png"></div></div>' +
     '</div>' +

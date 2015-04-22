@@ -16,6 +16,7 @@ var scrollDirection = '';
 var SlideController;
 var sliderData = [];
 var isOnline = true;
+var aspa_seleccionado = false;
 module.controller('SliderController', function($scope) {
 
     SlideController = $scope;
@@ -47,11 +48,21 @@ module.controller('SliderController', function($scope) {
 
             mainSlider.on('postchange', function(event) {
 
-                if(event.activeIndex != sliderData.pantallas.length) {
+                console.log(event.activeIndex + ', ' + sliderData.pantallas.length);
+
+                if (event.activeIndex != sliderData.pantallas.length) {
 
                     if (event.activeIndex > event.lastActiveIndex) {
 
-                        totalPoints++;
+                        if(aspa_seleccionado == false) {
+
+                            totalPoints++;
+
+                        } else {
+
+                            aspa_seleccionado = false;
+                        }
+
 
                         scrollDirection = 'right';
 
@@ -68,16 +79,16 @@ module.controller('SliderController', function($scope) {
 
                 } else {
 
-                    var porcentajeCoincidencias = totalPoints/sliderData.pantallas.length;
+                    var porcentajeCoincidencias = totalPoints / sliderData.pantallas.length;
                     var textoFinal;
                     var imagenFinal;
 
-                    if(porcentajeCoincidencias <= 0.25) {
+                    if (porcentajeCoincidencias <= 0.25) {
 
                         textoFinal = sliderData.config.texto_final1;
                         imagenFinal = sliderData.config.imagen_final1;
 
-                    } else if(porcentajeCoincidencias <= 0.70){
+                    } else if (porcentajeCoincidencias <= 0.70) {
 
                         textoFinal = sliderData.config.texto_final2;
                         imagenFinal = sliderData.config.imagen_final2;
@@ -91,33 +102,33 @@ module.controller('SliderController', function($scope) {
                     $('#ultimoContenido').html(textoFinal);
                     $('#ultimoFondo').attr('src', imagenFinal);
 
-                    $('#ultimoFacebook').unbind('click').on('click', function(event){
+                    $('#ultimoFacebook').unbind('click').on('click', function (event) {
 
                         shareViaFacebook(sliderData.config.texto_facebook);
 
                     });
 
-                    $('#ultimoFacebook').unbind('click').on('click', function(event){
+                    $('#ultimoFacebook').unbind('click').on('click', function (event) {
 
                         shareViaTwitter(sliderData.config.texto_twitter1);
 
                     });
 
-                    $('#ultimoFacebook').unbind('click').on('click', function(event){
+                    $('#ultimoFacebook').unbind('click').on('click', function (event) {
 
                         shareViaTwitter(sliderData.config.texto_twitter2);
 
                     });
 
-                    $('#ultimoFacebook').unbind('click').on('click', function(event){
+                    $('#ultimoFacebook').unbind('click').on('click', function (event) {
 
                         shareViaInstagram(sliderData.config.texto_instagram);
 
                     });
 
-                    $('#ultimoEmail').unbind('click').on('click', function(event){
+                    $('#ultimoEmail').unbind('click').on('click', function (event) {
 
-                        contactEmail( sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body );
+                        contactEmail(sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body);
 
                     });
                 }
@@ -137,7 +148,9 @@ function next() {
 
 function prev() {
 
-    mainSlider.prev();
+    aspa_seleccionado = true;
+
+    mainSlider.next();
 }
 
 function loadOffine() {
@@ -176,7 +189,7 @@ function onSliderIMGLoadSimple(img, index) {
 
     image.onload = function () {
 
-        container.parent().find('ons-icon').remove();
+        container.parent().find('ons-icon').hide();
 
         container.addClass('noopaque');
 
