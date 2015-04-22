@@ -199,3 +199,7 @@ ons-carousel-item {
 	right: 0;
 	bottom: 0;
 }
+
+.loading-final img {
+    visibility: hidden;
+}
