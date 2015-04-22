@@ -177,7 +177,7 @@ function onSliderIMGLoadSimple(img, index) {
     image.onload = function () {
 
         container.parent().find('ons-icon').remove();
-        
+
         container.addClass('noopaque');
 
         container.addClass('opaque');
