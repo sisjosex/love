@@ -29,7 +29,7 @@ var templates = {
     '<div id="ultimoContenido"></div>' +
     '<div class="email-section"><div class="button nobutton" id="ultimoEmail"><img src="img/app/email.png"></div></div>' +
     '</div>' +
-    '<div class="redes animate-all">' +
+    '<div class="redes animate-all" style="bottom: 90px;">' +
     '<div class="button nobutton" id="ultimoFacebook"><img src="img/app/facebook.png"></div>' +
     '<div class="button nobutton" id="ultimoTwitter1"><img src="img/app/twitter.png"></div>' +
     '<div class="button nobutton" id="ultimoTwitter2"><img src="img/app/twitter.png"></div>' +

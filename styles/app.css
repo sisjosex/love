@@ -186,3 +186,16 @@ ons-carousel-item {
 	margin-left: -10px;
 	margin-top: -10px;
 }
+
+#ultimoFondo {
+	max-width:100%;
+}
+
+.slide-border {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
