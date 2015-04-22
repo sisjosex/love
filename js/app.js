@@ -17,6 +17,7 @@ var SlideController;
 var sliderData = [];
 var isOnline = true;
 var aspa_seleccionado = false;
+var lastActiveIndex = 0;
 module.controller('SliderController', function($scope) {
 
     SlideController = $scope;
@@ -50,37 +51,7 @@ module.controller('SliderController', function($scope) {
 
                 console.log(event.activeIndex + ', ' + sliderData.pantallas.length);
 
-                if (event.activeIndex != sliderData.pantallas.length) {
-
-                    if (event.activeIndex > event.lastActiveIndex) {
-
-                        if(aspa_seleccionado == false) {
-
-                            totalPoints++;
-
-                        } else {
-
-                            aspa_seleccionado = false;
-                        }
-
-
-                        scrollDirection = 'right';
-
-                    } else {
-
-                        scrollDirection = 'left';
-                    }
-
-                    SlideController.status = totalPoints;
-
-                    SlideController.$apply();
-
-                    console.log(scrollDirection + ' ' + totalPoints);
-
-                } else {
-
-                    verificarPuntos();
-                }
+                verificarPuntos();
 
             });
 
@@ -92,60 +63,90 @@ module.controller('SliderController', function($scope) {
 
 function verificarPuntos() {
 
-    var porcentajeCoincidencias = totalPoints / sliderData.pantallas.length;
-    var textoFinal;
-    var imagenFinal;
+    console.log(mainSlider.getActiveCarouselItemIndex() + ' + ' + lastActiveIndex);
 
-    if (porcentajeCoincidencias <= 0.25) {
+    if (mainSlider.getActiveCarouselItemIndex() != sliderData.pantallas.length) {
 
-        textoFinal = sliderData.config.texto_final1;
-        imagenFinal = sliderData.config.imagen_final1;
+        if (mainSlider.getActiveCarouselItemIndex() > lastActiveIndex) {
 
-    } else if (porcentajeCoincidencias <= 0.70) {
+            if(aspa_seleccionado == false) {
 
-        textoFinal = sliderData.config.texto_final2;
-        imagenFinal = sliderData.config.imagen_final2;
+                totalPoints++;
+
+            } else {
+
+                aspa_seleccionado = false;
+            }
+
+
+            scrollDirection = 'right';
+
+        } else {
+
+            scrollDirection = 'left';
+        }
+
+        console.log(scrollDirection + ' ' + totalPoints);
 
     } else {
 
-        textoFinal = sliderData.config.texto_final3;
-        imagenFinal = sliderData.config.imagen_final3;
+        var porcentajeCoincidencias = totalPoints / sliderData.pantallas.length;
+        var textoFinal;
+        var imagenFinal;
+
+        if (porcentajeCoincidencias <= 0.25) {
+
+            textoFinal = sliderData.config.texto_final1;
+            imagenFinal = sliderData.config.imagen_final1;
+
+        } else if (porcentajeCoincidencias <= 0.70) {
+
+            textoFinal = sliderData.config.texto_final2;
+            imagenFinal = sliderData.config.imagen_final2;
+
+        } else {
+
+            textoFinal = sliderData.config.texto_final3;
+            imagenFinal = sliderData.config.imagen_final3;
+        }
+
+        console.log(imagenFinal);
+
+        $('#ultimoContenido').html(textoFinal);
+        $('#ultimoFondo').attr('src', imagenFinal);
+
+        $('#ultimoFacebook').unbind('click').on('click', function (event) {
+
+            shareViaFacebook(sliderData.config.texto_facebook);
+
+        });
+
+        $('#ultimoTwitter1').unbind('click').on('click', function (event) {
+
+            shareViaTwitter(sliderData.config.texto_twitter1);
+
+        });
+
+        $('#ultimoTwitter2').unbind('click').on('click', function (event) {
+
+            shareViaTwitter(sliderData.config.texto_twitter2);
+
+        });
+
+        $('#ultimoInstagram').unbind('click').on('click', function (event) {
+
+            shareViaInstagram(sliderData.config.texto_instagram);
+
+        });
+
+        $('#ultimoEmail').unbind('click').on('click', function (event) {
+
+            contactEmail(sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body);
+
+        });
     }
 
-    console.log(imagenFinal);
-
-    $('#ultimoContenido').html(textoFinal);
-    $('#ultimoFondo').attr('src', imagenFinal);
-
-    $('#ultimoFacebook').unbind('click').on('click', function (event) {
-
-        shareViaFacebook(sliderData.config.texto_facebook);
-
-    });
-
-    $('#ultimoTwitter1').unbind('click').on('click', function (event) {
-
-        shareViaTwitter(sliderData.config.texto_twitter1);
-
-    });
-
-    $('#ultimoTwitter2').unbind('click').on('click', function (event) {
-
-        shareViaTwitter(sliderData.config.texto_twitter2);
-
-    });
-
-    $('#ultimoInstagram').unbind('click').on('click', function (event) {
-
-        shareViaInstagram(sliderData.config.texto_instagram);
-
-    });
-
-    $('#ultimoEmail').unbind('click').on('click', function (event) {
-
-        contactEmail(sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body);
-
-    });
+    lastActiveIndex = mainSlider.getActiveCarouselItemIndex();
 }
 
 
@@ -153,9 +154,11 @@ function next() {
 
     mainSlider.next();
 
-    console.log(mainSlider.getActiveCarouselItemIndex());
+    aspa_seleccionado = false;
 
     verificarPuntos();
+
+    lastActiveIndex = mainSlider.getActiveCarouselItemIndex();
 }
 
 function prev() {
@@ -164,9 +167,9 @@ function prev() {
 
     mainSlider.next();
 
-    console.log(mainSlider.getActiveCarouselItemIndex());
-
     verificarPuntos();
+
+    lastActiveIndex = mainSlider.getActiveCarouselItemIndex();
 }
 
 function loadOffine() {
