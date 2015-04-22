@@ -32,10 +32,7 @@ module.controller('SliderController', function($scope) {
 
                 getJsonP(API_URL + 'obtenerPantallas/', renderPantallas, function () {
 
-                    try {
-                        navigator.splashscreen.hide();
-                    } catch (error) {
-                    }
+
 
                 }, function() {
 
@@ -266,7 +263,7 @@ function shareViaInstagram(txt) {
 
                             } else {
 
-                                showAlert("Se compartió exitosamente", "Aviso", "Aceptar");
+                                //showAlert("Se compartió exitosamente", "Aviso", "Aceptar");
                             }
                         });
 
