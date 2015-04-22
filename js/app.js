@@ -4,9 +4,7 @@ angular.module('MyApp', []);
 
 module.controller('NavigatorController', function($scope) {
 
-    try {
-        StatusBar.hide();
-    }catch(error){}
+    try { StatusBar.hide(); }catch(error){}
 
     ons.ready(function() {
         mainnavigator.pushPage('slider.html', {animation: 'none'});
@@ -241,13 +239,36 @@ function onSliderIMGLoad(img, index) {
     }
 }
 
-function shareViaInstagram(txt, url) {
+function shareViaInstagram(txt) {
 
     Instagram.isInstalled(function (err, installed) {
 
         if (installed) {
 
-            convertImgToBase64(url, function(data64){
+            navigator.screenshot.save(function(error,res) {
+                if (error) {
+                    console.error(error);
+                } else {
+                    console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
+                    //For android
+                    imageLink = res.filePath;
+
+
+                    Instagram.share('file://'+imageLink, txt, function (err) {
+
+                        if (err) {
+
+                            //showAlert("No se Pudo Compartir", "Mensaje", "Aceptar");
+
+                        } else {
+
+                            showAlert("Se compartió exitosamente", "Aviso", "Aceptar");
+                        }
+                    });
+                }
+            });
+
+            /*convertImgToBase64(url, function(data64){
 
                 Instagram.share(data64, txt, function (err) {
 
@@ -261,7 +282,7 @@ function shareViaInstagram(txt, url) {
                     }
                 });
 
-            });
+            });*/
 
         } else {
 
@@ -272,20 +293,43 @@ function shareViaInstagram(txt, url) {
 
 function shareViaFacebook(txt) {
 
-    window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(txt, null /* img */, null /* url */, 'Paste it!', function() {
+    navigator.screenshot.save(function(error,res) {
+        if (error) {
+            console.error(error);
+        } else {
+            console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
+            //For android
+            imageLink = res.filePath;
 
-        console.log('share ok');
+            window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(txt, 'file://'+imageLink, null /* url */, 'Mitica Love', function() {
 
-    }, function(errormsg){
+                showAlert("Se compartió exitosamente", "Aviso", "Aceptar");
 
-        alert(errormsg);
+            }, function(errormsg){
 
+                //alert(errormsg);
+
+            });
+        }
     });
 }
 
 function shareViaTwitter(txt) {
 
-    window.plugins.socialsharing.shareViaTwitter(txt, null /* img */);
+    navigator.screenshot.save(function(error,res) {
+        if (error) {
+
+            console.error(error);
+
+        } else {
+
+            console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
+            //For android
+            imageLink = res.filePath;
+
+            window.plugins.socialsharing.shareViaTwitter(txt, 'file://'+imageLink /* img */);
+        }
+    });
 }
 
 function contactEmail(email, subject, body) {

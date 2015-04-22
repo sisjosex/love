@@ -88,6 +88,9 @@
     <!-- Network Status -->
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
 
+    <!-- Screenshoot -->
+    <gap:plugin name="com.darktalker.cordova.screenshot" version="0.1.0" />
+
     <plugins>
         <plugin name="InAppBrowser" value="CDVInAppBrowser" />
     </plugins>
