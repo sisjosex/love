@@ -32,7 +32,7 @@ module.controller('SliderController', function($scope) {
 
                 getJsonP(API_URL + 'obtenerPantallas/', renderPantallas, function () {
 
-
+                    loadOffine();
 
                 }, function() {
 
@@ -140,28 +140,26 @@ function prev() {
     mainSlider.prev();
 }
 
-function loadOffline() {
+function loadOffine() {
 
-    getJson(window.location.href.replace('index.html', 'config.json'), renderPantallas, function () {
+    sliderData = offlineData;
 
-        try {
-            navigator.splashscreen.hide();
-        } catch (error) {
-        }
+    loadIntoTemplate('#sliderContainer', sliderData.pantallas, 'slide');
 
-    }, function() {
+    loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'ultimo_slide');
 
+    ons.compile($('#sliderContainer')[0]);
 
-    }, {});
+    try { navigator.splashscreen.hide(); } catch(error){}
 }
 
 function renderPantallas(data) {
 
     sliderData = data;
 
-    loadIntoTemplate('#sliderContainer', data.pantallas, 'slide');
+    loadIntoTemplate('#sliderContainer', sliderData.pantallas, 'slide');
 
-    loadIntoTemplateSingle('#sliderContainer', data.config, 'ultimo_slide');
+    loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'ultimo_slide');
 
     ons.compile($('#sliderContainer')[0]);
 
@@ -356,9 +354,15 @@ document.addEventListener("offline", onOffline, false);
 document.addEventListener("online", onOnline, false);
 
 function onOnline() {
+
     isOnline = true;
+
+    $('.redes').show();
 }
 
 function onOffline() {
+
     isOnline = false;
+
+    $('.redes').hide();
 }
