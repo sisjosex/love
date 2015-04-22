@@ -166,6 +166,24 @@ function renderPantallas(data) {
     try { navigator.splashscreen.hide(); } catch(error){}
 }
 
+function onSliderIMGLoadSimple(img, index) {
+
+    var src = $(img).attr('src');
+    var container = $(img).parent();
+
+    var image = new Image();
+    image.src = src;
+
+    image.onload = function () {
+
+        container.parent().find('ons-icon').remove();
+        
+        container.addClass('noopaque');
+
+        container.addClass('opaque');
+    }
+}
+
 function onSliderIMGLoad(img, index) {
 
     var src = $(img).attr('src');

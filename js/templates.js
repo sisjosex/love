@@ -4,7 +4,7 @@ var templates = {
     '<div class="slide-content">' +
     '<div class="slide-border">' +
     '<div class="title"><img src="%logo%" /></div>' +
-    '<div class="auto"><img src="%imagen%" /></div>' +
+    '<div class="auto animate"><img src="%imagen%" onload="onSliderIMGLoadSimple(this, 0);" /></div>' +
     '<div class="navigation">' +
     '<div class="button nobutton" onclick="prev()"><img src="img/app/cruz.png"></div>' +
     '<div class="button nobutton" onclick="next()"><img src="img/app/corazon.png"></div>' +
