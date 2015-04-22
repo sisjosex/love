@@ -247,23 +247,29 @@ function shareViaInstagram(txt) {
 
             navigator.screenshot.save(function(error,res) {
                 if (error) {
+
                     console.error(error);
+
                 } else {
+
                     console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
                     //For android
                     imageLink = res.filePath;
 
+                    convertImgToBase64('file://'+imageLink, function(data64){
 
-                    Instagram.share('file://'+imageLink, txt, function (err) {
+                        Instagram.share(data64, txt, function (err) {
 
-                        if (err) {
+                            if (err) {
 
-                            //showAlert("No se Pudo Compartir", "Mensaje", "Aceptar");
+                                //showAlert("No se Pudo Compartir", "Mensaje", "Aceptar");
 
-                        } else {
+                            } else {
 
-                            showAlert("Se compartió exitosamente", "Aviso", "Aceptar");
-                        }
+                                showAlert("Se compartió exitosamente", "Aviso", "Aceptar");
+                            }
+                        });
+
                     });
                 }
             });
