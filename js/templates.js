@@ -1,19 +1,20 @@
 var templates = {
     slide: '' +
     '<ons-carousel-item class="item-bg loading">' +
+    '<ons-icon icon="fa-spinner" spin="true" class="ons-icon ons-icon--ion ion-loading-c fa-lg"></ons-icon>' +
+    '<div class="full-screen animate"><img onload="onSliderIMGLoad(this, 0);" src="%imagen%" /></div>' +
     '<div class="slide-content">' +
     '<div class="slide-border">' +
     '<div class="title"><img src="%logo%" /></div>' +
-    '<div class="img-slide"><div class="auto animate"><img src="%imagen%" onload="onSliderIMGLoadSimple(this, 0);" /></div><ons-icon icon="fa-spinner" spin="true" class="ons-icon ons-icon--ion ion-loading-c fa-lg"></ons-icon></div>' +
     '<div class="navigation">' +
-    '<div class="button nobutton" onclick="prev()"><img src="img/app/cruz.png"></div>' +
-    '<div class="button nobutton" onclick="next()"><img src="img/app/corazon.png"></div>' +
+    '<div class="button nobutton" onclick="prev()"><img src="img/app/X2.png"></div>' +
+    '<div class="button nobutton" onclick="next()"><img src="img/app/Like2.png"></div>' +
     '</div>' +
     '<div class="redes">' +
-    '<div class="button nobutton" onclick="shareViaFacebook(\'%texto_facebook%\')"><img src="img/app/facebook.png"></div>' +
-    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter1%\')"><img src="img/app/twitter.png"></div>' +
-    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter2%\')"><img src="img/app/twitter.png"></div>' +
-    '<div class="button nobutton" onclick="shareViaInstagram(\'%texto_instagram%\')"><img src="img/app/instagram.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaFacebook(\'%texto_facebook%\')"><img src="img/app/FacebokEnCompatibles.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter1%\')"><img src="img/app/Twitter blanco.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter2%\')"><img src="img/app/Twitter blanco.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaInstagram(\'%texto_instagram%\')"><img src="img/app/InstagramEnCompatibles.png"></div>' +
     '</div>' +
     '</div>' +
     '</div>' +
