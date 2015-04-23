@@ -126,12 +126,12 @@ ons-carousel-item {
 }
 
 .redes img {
-	max-width:40px;
+	max-width: 35px;
 }
 
 .redes .button {
-	margin-left: 6px;
-	margin-right: 6px;
+	margin-left: 4px;
+	margin-right: 4px;
 }
 
 .nobutton {
