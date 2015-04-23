@@ -14,10 +14,12 @@ var templates = {
 
     '</div>' +
     '<div class="redes">' +
-    '<div class="button nobutton" onclick="shareViaFacebook(\'%texto_facebook%\')"><img src="img/app/FacebokEnCompatibles.png"></div>' +
-    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter1%\')"><img src="img/app/TwitterEnCompatibles.png"></div>' +
-    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter2%\')"><img src="img/app/TwitterEnCompatibles.png"></div>' +
-    '<div class="button nobutton" onclick="shareViaInstagram(\'%texto_instagram%\')"><img src="img/app/InstagramEnCompatibles.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter1%\')"><img src="img/app/Twitter-rosa.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter2%\')"><img src="img/app/Twitter.png"></div>' +
+    '<div class="button nobutton email-send"><img src="img/app/eMail.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaFacebook(\'%texto_facebook%\')"><img src="img/app/Facebook.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaInstagram(\'%texto_instagram%\')"><img src="img/app/Instagram.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaWhatsApp(\'%texto_whatsapp%\')"><img src="img/app/WhatsApp.png"></div>' +
     '</div>' +
     '</ons-carousel-item>',
 
@@ -28,15 +30,17 @@ var templates = {
     '<div class="slide-border">' +
     '<div class="" style="margin-top: 0;">' +
     '<div id="ultimoContenido"></div>' +
-    '<div class="email-section"><div class="button nobutton" id="ultimoEmail"><img src="img/app/Queremos-saber-tus-opiniones.png"></div></div>' +
+    '<div class="email-section"><div class="button nobutton email-send" id="ultimoEmail"><img src="img/app/Queremos-saber-tus-opiniones.png"></div></div>' +
     '</div>' +
     '</div>' +
     '</div>' +
     '<div class="redes animate-all">' +
+    '<div class="button nobutton" id="ultimoTwitter1"><img src="img/app/Twitter blanco-rosa.png"></div>' +
+    '<div class="button nobutton" id="ultimoTwitter2"><img src="img/app/Twitter blanco.png"></div>' +
+    '<div class="button nobutton email-send"><img src="img/app/MailEnCompatibles.png"></div>' +
     '<div class="button nobutton" id="ultimoFacebook"><img src="img/app/FacebokEnCompatibles.png"></div>' +
-    '<div class="button nobutton" id="ultimoTwitter1"><img src="img/app/TwitterEnCompatibles.png"></div>' +
-    '<div class="button nobutton" id="ultimoTwitter2"><img src="img/app/TwitterEnCompatibles.png"></div>' +
     '<div class="button nobutton" id="ultimoInstagram"><img src="img/app/InstagramEnCompatibles.png"></div>' +
+    '<div class="button nobutton" id="ultimoWhatsapp"><img src="img/app/WhatsappEnCompatibles.png"></div>' +
     '</div>' +
     '</ons-carousel-item>'
 };

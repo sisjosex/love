@@ -22,8 +22,6 @@ module.controller('SliderController', function($scope) {
 
     SlideController = $scope;
 
-    $scope.status = '';
-
     ons.ready(function() {
 
         $scope.status = '';
@@ -116,6 +114,8 @@ function verificarPuntos() {
 
         //console.log(imagenFinal);
 
+        textoFinal = textoFinal.replaceAll('{{likes}}', totalPoints);
+
         $('#ultimoContenido').html(textoFinal);
         $('#ultimoFondo').attr('src', imagenFinal);
 
@@ -140,12 +140,6 @@ function verificarPuntos() {
         $('#ultimoInstagram').unbind('click').on('click', function (event) {
 
             shareViaInstagram(sliderData.config.texto_instagram);
-
-        });
-
-        $('#ultimoEmail').unbind('click').on('click', function (event) {
-
-            contactEmail(sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body);
 
         });
 
@@ -189,6 +183,15 @@ function loadOffine() {
         $(this).css('max-height', window.innerHeight + 'px');
     });
 
+    $('.email-send').unbind('click').each(function() {
+
+        $(this).on('click', function (event) {
+
+            contactEmail(sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body);
+
+        });
+    });
+
     ons.compile($('#sliderContainer')[0]);
 
     try { navigator.splashscreen.hide(); } catch(error){}
@@ -205,6 +208,15 @@ function renderPantallas(data) {
     $('.img-restricted').each(function(){
         $(this).css('max-width', window.innerWidth + 'px');
         $(this).css('max-height', window.innerHeight + 'px');
+    });
+
+    $('.email-send').unbind('click').each(function() {
+
+        $(this).on('click', function (event) {
+
+            contactEmail(sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body);
+
+        });
     });
 
     ons.compile($('#sliderContainer')[0]);
@@ -296,7 +308,7 @@ function onSliderIMGLoad(image, index) {
         }
 
         //container.css('background-size', parseInt(width) + "px" + " " + parseInt(height) + "px");
-        container.css('background-size', "100% auto");
+        container.css('background-size', "100% 100%");
 
         container.addClass('opaque');
     //}
@@ -401,6 +413,24 @@ function shareViaTwitter(txt) {
             imageLink = res.filePath;
 
             window.plugins.socialsharing.shareViaTwitter(txt, 'file://'+imageLink /* img */);
+        }
+    });
+}
+
+function shareViaWhatsApp(txt) {
+
+    navigator.screenshot.save(function(error,res) {
+        if (error) {
+
+            //console.error(error);
+
+        } else {
+
+            //console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
+            //For android
+            imageLink = res.filePath;
+
+            window.plugins.socialsharing.shareViaWhatsApp(txt, 'file://'+imageLink /* img */);
         }
     });
 }

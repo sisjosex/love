@@ -130,8 +130,8 @@ ons-carousel-item {
 }
 
 .redes .button {
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 6px;
+	margin-right: 6px;
 }
 
 .nobutton {
@@ -178,6 +178,7 @@ ons-carousel-item {
 #ultimoContenido, #ultimoContenido * {
 	font-family: "Gotham-Medium";
 	color:#bf0054;
+	margin-top:20px;
 }
 
 .email-section {

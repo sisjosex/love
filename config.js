@@ -8,6 +8,7 @@ var offlineData =
             "texto_twitter1": "compartir x twitter",
             "texto_twitter2": "compartir x twitter2",
             "texto_instagram": "compartir x instagram",
+            "texto_whatsapp": "compartir x w",
             "status": "active",
             "logo": "img\/logo\/logo.png"
         }, {
@@ -17,6 +18,7 @@ var offlineData =
             "texto_twitter1": "twitter",
             "texto_twitter2": "t2",
             "texto_instagram": "inst",
+            "texto_whatsapp": "compartir x w",
             "status": "active",
             "logo": "img\/logo\/logo.png"
         }, {
@@ -26,6 +28,7 @@ var offlineData =
             "texto_twitter1": "tw1",
             "texto_twitter2": "tw2",
             "texto_instagram": "inst",
+            "texto_whatsapp": "compartir x w",
             "status": "active",
             "logo": "img\/logo\/logo.png"
         }],
@@ -48,7 +51,8 @@ var offlineData =
             "texto_facebook": "Texto compartir x facebook",
             "texto_twitter1": "Texto compartir x twitter1",
             "texto_twitter2": "Texto compartir x twitter2",
-            "texto_instagram": "Texto compartir x instagram"
+            "texto_instagram": "Texto compartir x instagram",
+            "texto_whatsapp": "compartir x w"
         }
     }
 ;
