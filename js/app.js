@@ -184,6 +184,11 @@ function loadOffine() {
 
     loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'ultimo_slide');
 
+    $('.img-restricted').each(function(){
+        $(this).css('max-width', window.innerWidth + 'px');
+        $(this).css('max-height', window.innerHeight + 'px');
+    });
+
     ons.compile($('#sliderContainer')[0]);
 
     try { navigator.splashscreen.hide(); } catch(error){}
@@ -196,6 +201,11 @@ function renderPantallas(data) {
     loadIntoTemplate('#sliderContainer', sliderData.pantallas, 'slide');
 
     loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'ultimo_slide');
+
+    $('.img-restricted').each(function(){
+        $(this).css('max-width', window.innerWidth + 'px');
+        $(this).css('max-height', window.innerHeight + 'px');
+    });
 
     ons.compile($('#sliderContainer')[0]);
 
@@ -240,7 +250,7 @@ function onSliderIMGLoad(image, index) {
 
         container.css('background-image', "url('" + src + "')");
         container.css('background-repeat', "no-repeat");
-        container.css('background-position', "center center");
+        container.css('background-position', "0 0");
 
         var width = image.width;
         var height = image.height;
@@ -285,7 +295,8 @@ function onSliderIMGLoad(image, index) {
             }
         }
 
-        container.css('background-size', parseInt(width) + "px" + " " + parseInt(height) + "px");
+        //container.css('background-size', parseInt(width) + "px" + " " + parseInt(height) + "px");
+        container.css('background-size', "100% auto");
 
         container.addClass('opaque');
     //}

@@ -3,7 +3,7 @@ var offlineData =
         "status": "success",
         "pantallas": [{
             "id": "1",
-            "imagen": "img\/pantalla\/header-1.jpg",
+            "imagen": "img\/pantalla\/img1.jpg",
             "texto_facebook": "compartir x facebook",
             "texto_twitter1": "compartir x twitter",
             "texto_twitter2": "compartir x twitter2",
@@ -12,7 +12,7 @@ var offlineData =
             "logo": "img\/logo\/logo.png"
         }, {
             "id": "2",
-            "imagen": "img\/pantalla\/header-2.jpg",
+            "imagen": "img\/pantalla\/img2.jpg",
             "texto_facebook": "facebook",
             "texto_twitter1": "twitter",
             "texto_twitter2": "t2",
@@ -21,7 +21,7 @@ var offlineData =
             "logo": "img\/logo\/logo.png"
         }, {
             "id": "3",
-            "imagen": "img\/pantalla\/header-3.jpg",
+            "imagen": "img\/pantalla\/img1.jpg",
             "texto_facebook": "fb",
             "texto_twitter1": "tw1",
             "texto_twitter2": "tw2",
@@ -42,9 +42,9 @@ var offlineData =
             "texto_final1": "<p><strong>Texto Final1<\/strong><\/p>",
             "texto_final2": "Titulo Final2",
             "texto_final3": "Titulo Final3",
-            "imagen_final1": "img\/img1.jpg",
-            "imagen_final2": "img\/img2.jpg",
-            "imagen_final3": "img\/img3.jpg",
+            "imagen_final1": "img\/final.jpg",
+            "imagen_final2": "img\/final.jpg",
+            "imagen_final3": "img\/final.jpg",
             "texto_facebook": "Texto compartir x facebook",
             "texto_twitter1": "Texto compartir x twitter1",
             "texto_twitter2": "Texto compartir x twitter2",

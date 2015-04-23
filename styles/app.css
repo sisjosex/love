@@ -40,6 +40,14 @@ h1, h2, h3 {
 	color:#b90053;
 }
 
+.navigation {
+	margin-bottom: 40px;
+	position: absolute;
+	bottom: 48px;
+	left: 0;
+	right: 0;
+}
+
 .navigation-bar {
 	background:transparent !important;
 }
@@ -89,7 +97,11 @@ ons-carousel-item {
 }
 
 .title img {
-	max-height:80px;
+	max-height: 80px;
+	max-width: 94%;
+	padding-top: 0;
+	padding-left: 0;
+	margin-top: 35px;
 }
 
 .navigation {
@@ -97,7 +109,7 @@ ons-carousel-item {
 }
 
 .navigation img {
-	max-width:50px;
+	max-width:68px;
 }
 
 .navigation .button {
@@ -106,15 +118,20 @@ ons-carousel-item {
 }
 
 .redes {
-	margin-top: 40px;
 	position: absolute;
-	bottom: 0px;
+	bottom: 0;
 	left: 0;
 	right: 0;
+	margin-bottom: 20px;
 }
 
 .redes img {
 	max-width:40px;
+}
+
+.redes .button {
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .nobutton {
@@ -154,8 +171,13 @@ ons-carousel-item {
 	bottom: 0;
 }
 
-#ultimoContenido * {
+#ultimoContenido {
+	padding:10px;
+}
+
+#ultimoContenido, #ultimoContenido * {
 	font-family: "Gotham-Medium";
+	color:#bf0054;
 }
 
 .email-section {
@@ -163,8 +185,9 @@ ons-carousel-item {
 }
 
 .email-section img {
-	max-height:50px;
+	max-height:37px;
 	width:auto;
+	margin-top:10px;
 }
 
 .slide-border .title {
@@ -202,4 +225,5 @@ ons-carousel-item {
 
 .loading-final img {
     visibility: hidden;
+	max-width: 100%;
 }

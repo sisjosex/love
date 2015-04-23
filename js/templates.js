@@ -2,7 +2,7 @@ var templates = {
     slide: '' +
     '<ons-carousel-item class="item-bg loading">' +
     '<ons-icon icon="fa-spinner" spin="true" class="ons-icon ons-icon--ion ion-loading-c fa-lg"></ons-icon>' +
-    '<div class="full-screen animate"><img onload="onSliderIMGLoad(this, 0);" src="%imagen%" /></div>' +
+    '<div class="full-screen loading-final animate"><img onload="onSliderIMGLoad(this, 0);" src="%imagen%" class="img-restricted" /></div>' +
     '<div class="slide-content">' +
     '<div class="slide-border">' +
     '<div class="title"><img src="%logo%" /></div>' +
@@ -10,33 +10,33 @@ var templates = {
     '<div class="button nobutton" onclick="prev()"><img src="img/app/X2.png"></div>' +
     '<div class="button nobutton" onclick="next()"><img src="img/app/Like2.png"></div>' +
     '</div>' +
+    '</div>' +
+
+    '</div>' +
     '<div class="redes">' +
     '<div class="button nobutton" onclick="shareViaFacebook(\'%texto_facebook%\')"><img src="img/app/FacebokEnCompatibles.png"></div>' +
-    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter1%\')"><img src="img/app/Twitter blanco.png"></div>' +
-    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter2%\')"><img src="img/app/Twitter blanco.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter1%\')"><img src="img/app/TwitterEnCompatibles.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter2%\')"><img src="img/app/TwitterEnCompatibles.png"></div>' +
     '<div class="button nobutton" onclick="shareViaInstagram(\'%texto_instagram%\')"><img src="img/app/InstagramEnCompatibles.png"></div>' +
-    '</div>' +
-    '</div>' +
     '</div>' +
     '</ons-carousel-item>',
 
     ultimo_slide: '<ons-carousel-item class="item-bg loading">' +
     '<ons-icon icon="fa-spinner" spin="true" class="ons-icon ons-icon--ion ion-loading-c fa-lg"></ons-icon>' +
-    '<div class="full-screen loading-final animate"><img id="ultimoFondo" onload="onSliderIMGLoad(this, 0);" src="" /></div>' +
+    '<div class="full-screen loading-final animate"><img id="ultimoFondo" onload="onSliderIMGLoad(this, 0);" src="" class="img-restricted" /></div>' +
     '<div class="slide-content">' +
     '<div class="slide-border">' +
-    '<div class="title" style="height:50px;"></div>' +
-    '<div class="" style="margin-top: 34%;">' +
+    '<div class="" style="margin-top: 0;">' +
     '<div id="ultimoContenido"></div>' +
-    '<div class="email-section"><div class="button nobutton" id="ultimoEmail"><img src="img/app/email.png"></div></div>' +
-    '</div>' +
-    '<div class="redes animate-all" style="bottom: 90px;">' +
-    '<div class="button nobutton" id="ultimoFacebook"><img src="img/app/facebook.png"></div>' +
-    '<div class="button nobutton" id="ultimoTwitter1"><img src="img/app/twitter.png"></div>' +
-    '<div class="button nobutton" id="ultimoTwitter2"><img src="img/app/twitter.png"></div>' +
-    '<div class="button nobutton" id="ultimoInstagram"><img src="img/app/instagram.png"></div>' +
+    '<div class="email-section"><div class="button nobutton" id="ultimoEmail"><img src="img/app/Queremos-saber-tus-opiniones.png"></div></div>' +
     '</div>' +
     '</div>' +
+    '</div>' +
+    '<div class="redes animate-all">' +
+    '<div class="button nobutton" id="ultimoFacebook"><img src="img/app/FacebokEnCompatibles.png"></div>' +
+    '<div class="button nobutton" id="ultimoTwitter1"><img src="img/app/TwitterEnCompatibles.png"></div>' +
+    '<div class="button nobutton" id="ultimoTwitter2"><img src="img/app/TwitterEnCompatibles.png"></div>' +
+    '<div class="button nobutton" id="ultimoInstagram"><img src="img/app/InstagramEnCompatibles.png"></div>' +
     '</div>' +
     '</ons-carousel-item>'
 };
