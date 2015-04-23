@@ -143,6 +143,12 @@ function verificarPuntos() {
 
         });
 
+        $('#ultimoWhatsapp').unbind('click').on('click', function (event) {
+
+            shareViaWhatsApp(sliderData.config.texto_instagram);
+
+        });
+
 
     lastActiveIndex = mainSlider.getActiveCarouselItemIndex();
 }
