@@ -49,7 +49,7 @@ module.controller('SliderController', function($scope) {
 
             mainSlider.on('postchange', function(event) {
 
-                console.log(event.activeIndex + ', ' + sliderData.pantallas.length);
+                //console.log(event.activeIndex + ', ' + sliderData.pantallas.length);
 
                 verificarPuntos();
 
@@ -63,9 +63,9 @@ module.controller('SliderController', function($scope) {
 
 function verificarPuntos() {
 
-    console.log(mainSlider.getActiveCarouselItemIndex() + ' + ' + lastActiveIndex);
+    //console.log(mainSlider.getActiveCarouselItemIndex() + ' + ' + lastActiveIndex);
 
-    if (mainSlider.getActiveCarouselItemIndex() != sliderData.pantallas.length) {
+    if (true) {
 
         if (mainSlider.getActiveCarouselItemIndex() > lastActiveIndex) {
 
@@ -86,9 +86,11 @@ function verificarPuntos() {
             scrollDirection = 'left';
         }
 
-        console.log(scrollDirection + ' ' + totalPoints);
+        //console.log(scrollDirection + ' ' + totalPoints);
 
-    } else {
+    }
+    $('#ultimoFondo').attr('src', '');
+    $('#ultimoFondo').parent().css('background-image', 'none');
 
         var porcentajeCoincidencias = totalPoints / sliderData.pantallas.length;
         var textoFinal;
@@ -110,7 +112,9 @@ function verificarPuntos() {
             imagenFinal = sliderData.config.imagen_final3;
         }
 
-        console.log(imagenFinal);
+        imagenFinal = imagenFinal + '?rand=' + Math.random()*1000;
+
+        //console.log(imagenFinal);
 
         $('#ultimoContenido').html(textoFinal);
         $('#ultimoFondo').attr('src', imagenFinal);
@@ -144,7 +148,7 @@ function verificarPuntos() {
             contactEmail(sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body);
 
         });
-    }
+
 
     lastActiveIndex = mainSlider.getActiveCarouselItemIndex();
 }
@@ -216,20 +220,23 @@ function onSliderIMGLoadSimple(img, index) {
     }
 }
 
-function onSliderIMGLoad(img, index) {
+function onSliderIMGLoad(image, index) {
 
-    var src = $(img).attr('src');
-    var container = $(img).parent();
+    console.log(image);
 
-    var image = new Image();
-    image.src = src;
+    var src = $(image).attr('src');
+    var container = $(image).parent();
 
-    image.onload = function () {
+    //var image = new Image();
+    //image.src = src;
+
+    //image.onload = function () {
 
         container.parent().find('ons-icon').hide();
 
         //container.html('');
         container.addClass('noopaque');
+        container.removeClass('opaque');
 
         container.css('background-image', "url('" + src + "')");
         container.css('background-repeat', "no-repeat");
@@ -281,7 +288,7 @@ function onSliderIMGLoad(img, index) {
         container.css('background-size', parseInt(width) + "px" + " " + parseInt(height) + "px");
 
         container.addClass('opaque');
-    }
+    //}
 }
 
 function shareViaInstagram(txt) {
@@ -293,11 +300,12 @@ function shareViaInstagram(txt) {
             navigator.screenshot.save(function(error,res) {
                 if (error) {
 
-                    console.error(error);
+                    //console.error(error);
 
                 } else {
 
-                    console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
+                    //console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
+
                     //For android
                     imageLink = res.filePath;
 
@@ -337,7 +345,7 @@ function shareViaInstagram(txt) {
 
         } else {
 
-            console.log("Instagram no esta instalado");
+            showAlert("Instagram no esta instalado", 'Error', 'Aceptar');
         }
     });
 }
@@ -345,10 +353,13 @@ function shareViaInstagram(txt) {
 function shareViaFacebook(txt) {
 
     navigator.screenshot.save(function(error,res) {
+
         if (error) {
-            console.error(error);
+
+            //console.error(error);
+
         } else {
-            console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
+            //console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
             //For android
             imageLink = res.filePath;
 
@@ -370,11 +381,11 @@ function shareViaTwitter(txt) {
     navigator.screenshot.save(function(error,res) {
         if (error) {
 
-            console.error(error);
+            //console.error(error);
 
         } else {
 
-            console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
+            //console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
             //For android
             imageLink = res.filePath;
 
