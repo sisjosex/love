@@ -121,31 +121,31 @@ function verificarPuntos() {
 
         $('#ultimoFacebook').unbind('click').on('click', function (event) {
 
-            shareViaFacebook(sliderData.config.texto_facebook);
+            shareViaFacebook(sliderData.config.texto_facebook, true);
 
         });
 
         $('#ultimoTwitter1').unbind('click').on('click', function (event) {
 
-            shareViaTwitter(sliderData.config.texto_twitter1);
+            shareViaTwitter(sliderData.config.texto_twitter1, 1, true);
 
         });
 
         $('#ultimoTwitter2').unbind('click').on('click', function (event) {
 
-            shareViaTwitter(sliderData.config.texto_twitter2);
+            shareViaTwitter(sliderData.config.texto_twitter2, 2, true);
 
         });
 
         $('#ultimoInstagram').unbind('click').on('click', function (event) {
 
-            shareViaInstagram(sliderData.config.texto_instagram);
+            shareViaInstagram(sliderData.config.texto_instagram, true);
 
         });
 
         $('#ultimoWhatsapp').unbind('click').on('click', function (event) {
 
-            shareViaWhatsApp(sliderData.config.texto_instagram);
+            shareViaWhatsApp(sliderData.config.texto_instagram, true);
 
         });
 
@@ -320,7 +320,14 @@ function onSliderIMGLoad(image, index) {
     //}
 }
 
-function shareViaInstagram(txt) {
+function shareViaInstagram(txt, is_last) {
+
+    if(!is_last || is_last== undefined) {
+
+        txt = sliderData.pantallas[txt].texto_instagram;
+    }
+
+    console.log(txt);
 
     Instagram.isInstalled(function (err, installed) {
 
@@ -379,7 +386,14 @@ function shareViaInstagram(txt) {
     });
 }
 
-function shareViaFacebook(txt) {
+function shareViaFacebook(txt, is_last) {
+
+    if(!is_last || is_last== undefined) {
+
+        txt = sliderData.pantallas[txt].texto_facebook;
+    }
+
+    console.log(txt);
 
     navigator.screenshot.save(function(error,res) {
 
@@ -405,7 +419,14 @@ function shareViaFacebook(txt) {
     });
 }
 
-function shareViaTwitter(txt) {
+function shareViaTwitter(txt, number, is_last) {
+
+    if(is_last == false || is_last== undefined) {
+
+        txt = sliderData.pantallas[txt]['texto_twitter' + number];
+    }
+
+    console.log(txt);
 
     navigator.screenshot.save(function(error,res) {
         if (error) {
@@ -423,7 +444,14 @@ function shareViaTwitter(txt) {
     });
 }
 
-function shareViaWhatsApp(txt) {
+function shareViaWhatsApp(txt, is_last) {
+
+    if(!is_last || is_last== undefined) {
+
+        txt = sliderData.pantallas[txt].texto_whatsapp;
+    }
+
+    console.log(txt);
 
     navigator.screenshot.save(function(error,res) {
         if (error) {

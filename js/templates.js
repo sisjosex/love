@@ -14,12 +14,12 @@ var templates = {
 
     '</div>' +
     '<div class="redes">' +
-    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter1%\')"><img src="img/app/Twitter-rosa.png"></div>' +
-    '<div class="button nobutton" onclick="shareViaTwitter(\'%texto_twitter2%\')"><img src="img/app/twitter.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaTwitter(%index%, 1)"><img src="img/app/Twitter-rosa.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaTwitter(%index%, 2)"><img src="img/app/twitter.png"></div>' +
     '<div class="button nobutton email-send"><img src="img/app/email.png"></div>' +
-    '<div class="button nobutton" onclick="shareViaFacebook(\'%texto_facebook%\')"><img src="img/app/facebook.png"></div>' +
-    '<div class="button nobutton" onclick="shareViaInstagram(\'%texto_instagram%\')"><img src="img/app/instagram.png"></div>' +
-    '<div class="button nobutton" onclick="shareViaWhatsApp(\'%texto_whatsapp%\')"><img src="img/app/WhatsApp.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaFacebook(%index%)"><img src="img/app/facebook.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaInstagram(%index%)"><img src="img/app/instagram.png"></div>' +
+    '<div class="button nobutton" onclick="shareViaWhatsApp(%index%)"><img src="img/app/WhatsApp.png"></div>' +
     '</div>' +
     '</ons-carousel-item>',
 
@@ -66,7 +66,7 @@ function loadIntoTemplate(div, data, template, labels, height) {
 
             for (var j in labels) {
 
-                str = str.replaceAll('{' + j + '}', labels[j]);
+                str = str.replaceAll('{' + j + '}', labels[j]).replaceAll('"', '\"').replaceAll('"', '\"');
             }
         }
 
