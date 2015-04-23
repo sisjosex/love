@@ -179,8 +179,8 @@ function loadOffine() {
     loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'ultimo_slide');
 
     $('.img-restricted').each(function(){
-        $(this).css('max-width', window.innerWidth + 'px');
-        $(this).css('max-height', window.innerHeight + 'px');
+        $(this).css('width', window.innerWidth + 'px');
+        $(this).css('height', window.innerHeight + 'px');
     });
 
     $('.email-send').unbind('click').each(function() {
@@ -206,8 +206,8 @@ function renderPantallas(data) {
     loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'ultimo_slide');
 
     $('.img-restricted').each(function(){
-        $(this).css('max-width', window.innerWidth + 'px');
-        $(this).css('max-height', window.innerHeight + 'px');
+        $(this).css('width', window.innerWidth + 'px');
+        $(this).css('height', window.innerHeight + 'px');
     });
 
     $('.email-send').unbind('click').each(function() {
