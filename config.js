@@ -10,7 +10,7 @@ var offlineData =
             "texto_instagram": "compartir x instagram",
             "texto_whatsapp": "compartir x w",
             "status": "active",
-            "logo": "img\/logo\/logo.png"
+            "logo": ""
         }, {
             "id": "2",
             "imagen": "img\/pantalla\/img2.jpg",
@@ -20,7 +20,7 @@ var offlineData =
             "texto_instagram": "inst",
             "texto_whatsapp": "compartir x w",
             "status": "active",
-            "logo": "img\/logo\/logo.png"
+            "logo": ""
         }, {
             "id": "3",
             "imagen": "img\/pantalla\/img1.jpg",
@@ -30,7 +30,7 @@ var offlineData =
             "texto_instagram": "inst",
             "texto_whatsapp": "compartir x w",
             "status": "active",
-            "logo": "img\/logo\/logo.png"
+            "logo": ""
         }],
         "config": {
             "id": "1",
@@ -38,7 +38,7 @@ var offlineData =
             "contact_subject": "Contacto",
             "contact_body": "",
             "status": "active",
-            "logo": "img\/logo\/logo.png",
+            "logo": "",
             "titulo_final1": "Titulo Final1",
             "titulo_final2": "Titulo Final2",
             "titulo_final3": "Titulo Final3",
