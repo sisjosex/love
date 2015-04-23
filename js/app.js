@@ -112,6 +112,8 @@ function verificarPuntos() {
 
         imagenFinal = imagenFinal + '?rand=' + Math.random()*1000;
 
+        $('.ultima-pantalla').find('ons-icon').show();
+
         //console.log(imagenFinal);
 
         textoFinal = textoFinal.replaceAll('{{likes}}', totalPoints).replaceAll('%likes%', totalPoints);

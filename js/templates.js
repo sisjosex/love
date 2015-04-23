@@ -23,7 +23,7 @@ var templates = {
     '</div>' +
     '</ons-carousel-item>',
 
-    ultimo_slide: '<ons-carousel-item class="item-bg loading">' +
+    ultimo_slide: '<ons-carousel-item class="item-bg loading ultima-pantalla">' +
     '<ons-icon icon="fa-spinner" spin="true" class="ons-icon ons-icon--ion ion-loading-c fa-lg"></ons-icon>' +
     '<div class="full-screen loading-final animate"><img id="ultimoFondo" onload="onSliderIMGLoad(this, 0);" src="" class="img-restricted" /></div>' +
     '<div class="slide-content">' +
