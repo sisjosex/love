@@ -114,7 +114,7 @@ function verificarPuntos() {
 
         //console.log(imagenFinal);
 
-        textoFinal = textoFinal.replaceAll('{{likes}}', totalPoints);
+        textoFinal = textoFinal.replaceAll('{{likes}}', totalPoints).replaceAll('%likes%', totalPoints);
 
         $('#ultimoContenido').html(textoFinal);
         $('#ultimoFondo').attr('src', imagenFinal);
