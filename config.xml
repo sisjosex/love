@@ -96,9 +96,6 @@
     <!-- Email -->
     <gap:plugin name="de.appplant.cordova.plugin.email-composer" version="0.8.2" />
 
-    <!-- Network Status -->
-    <gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
-
     <!-- Screenshoot -->
     <gap:plugin name="com.darktalker.cordova.screenshot" version="0.1.0" />
 
