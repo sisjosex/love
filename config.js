@@ -52,7 +52,9 @@ var offlineData =
             "texto_twitter1": "Texto compartir x twitter1",
             "texto_twitter2": "Texto compartir x twitter2",
             "texto_instagram": "Texto compartir x instagram",
-            "texto_whatsapp": "compartir x w"
+            "texto_whatsapp": "compartir x w",
+            "web_texto": "www.cristinacifuentes.es",
+            "web_url": "http://www.cristinacifuentes.es"
         }
     }
 ;

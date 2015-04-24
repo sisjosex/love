@@ -232,3 +232,54 @@ ons-carousel-item {
 #sliderContainer {
 	overflow-y: hidden !important;
 }
+
+.button2 {
+    background-color: #bc0052;
+    border-radius: 5px;
+    font-family: "DINPro-Regular";
+    padding-left: 10px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    line-height: 37px;
+    padding-right: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#paginator {
+    text-align: center;
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    margin-top: 5px;
+}
+
+.paginator-item {
+    width: 5px;
+    height: 5px;
+    background: rgba(255,255,255,0.7);
+    display: inline-block;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+.paginator-item.selected {
+    width: 8px;
+    height: 8px;
+}
+
+.transparent {
+    opacity:0 !important;
+}

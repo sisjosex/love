@@ -13,8 +13,8 @@ var templates = {
     '<div class="slide-border">' +
     '<div class="title"><img src="%logo%" /></div>' +
     '<div class="navigation">' +
-    '<div class="button nobutton" onclick="prev()"><img src="img/app/X2.png"></div>' +
-    '<div class="button nobutton" onclick="next()"><img src="img/app/Like2.png"></div>' +
+    '<div class="button nobutton" onclick="votoAspa()"><img src="img/app/X2.png"></div>' +
+    '<div class="button nobutton" onclick="votoCorazon()"><img src="img/app/Like2.png"></div>' +
     '</div>' +
     '</div>' +
 
@@ -41,6 +41,7 @@ var templates = {
     '</div>' +
     '</div>' +
     '<div class="redes animate-all">' +
+    '<div class="email-section"><div class="button button2" onclick="openWeb()">%web_texto%</div></div>' +
     //'<div class="button nobutton" id="ultimoTwitter1"><img src="img/app/Twitter blanco-rosa.png"></div>' +
     '<div class="button nobutton" id="ultimoTwitter2"><img src="img/app/Twitter blanco.png"></div>' +
     '<div class="button nobutton email-send"><img src="img/app/MailEnCompatibles.png"></div>' +
@@ -48,7 +49,11 @@ var templates = {
     '<div class="button nobutton" id="ultimoInstagram"><img src="img/app/InstagramEnCompatibles.png"></div>' +
     '<div class="button nobutton" id="ultimoWhatsapp"><img src="img/app/WhatsappEnCompatibles.png"></div>' +
     '</div>' +
-    '</ons-carousel-item>'
+    '</ons-carousel-item>',
+
+    paginator_container: '<ons-carousel-cover><div id="paginator"></div></ons-carousel-cover>',
+
+    paginator_item: '<div class="paginator-item"></div>'
 };
 
 function loadIntoTemplate(div, data, template, labels, height) {
