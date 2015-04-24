@@ -128,7 +128,7 @@ function storeToken(uuid, token, device) {
     localStorage.setItem("uuid", DEVICE_UUID);
 
 
-    getJsonPBackground(API_URL + 'updateUUID/', storePushInfoInMobile, onError, {
+    getJsonPBackground(API_URL + 'updateUUID/', function(){}, function(){}, {
         token: TOKEN_PUSH_NOTIFICATION,
         uuid: uuid,
         device: device
