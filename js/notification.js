@@ -127,14 +127,13 @@ function storeToken(uuid, token, device) {
     localStorage.setItem("push_token", TOKEN_PUSH_NOTIFICATION);
     localStorage.setItem("uuid", DEVICE_UUID);
 
-    /*
-    getJsonPBackground(api_url + 'updateUUID/', storePushInfoInMobile, onError, {
-        user_id: userData.id,
-        uuid: TOKEN_PUSH_NOTIFICATION,
-        uuid_device: uuid,
+
+    getJsonPBackground(API_URL + 'updateUUID/', storePushInfoInMobile, onError, {
+        token: TOKEN_PUSH_NOTIFICATION,
+        uuid: uuid,
         device: device
     });
-    */
+
 }
 
 function verifyNotification() {
