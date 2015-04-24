@@ -87,30 +87,33 @@ function verificarPuntos() {
         //console.log(scrollDirection + ' ' + totalPoints);
 
     }
-    $('#ultimoFondo').attr('src', '');
-    $('#ultimoFondo').parent().css('background-image', 'none');
 
         var porcentajeCoincidencias = totalPoints / sliderData.pantallas.length;
         var textoFinal;
         var imagenFinal;
 
+        var img_number = 0;
+
         if (porcentajeCoincidencias <= 0.25) {
 
             textoFinal = sliderData.config.texto_final1;
             imagenFinal = sliderData.config.imagen_final1;
+            img_number = 1;
 
         } else if (porcentajeCoincidencias <= 0.70) {
 
             textoFinal = sliderData.config.texto_final2;
             imagenFinal = sliderData.config.imagen_final2;
+            img_number = 2;
 
         } else {
 
             textoFinal = sliderData.config.texto_final3;
             imagenFinal = sliderData.config.imagen_final3;
+            img_number = 3;
         }
 
-        imagenFinal = imagenFinal + '?rand=' + Math.random()*1000;
+        //imagenFinal = imagenFinal + '?rand=' + Math.random()*1000;
 
         $('.ultima-pantalla').find('ons-icon').show();
 
@@ -118,8 +121,26 @@ function verificarPuntos() {
 
         textoFinal = textoFinal.replaceAll('{{likes}}', totalPoints).replaceAll('%likes%', totalPoints);
 
+        if(img_finales['imagen_final' + img_number] != false) {
+
+            $('#ultimoFondo').parent().parent().find('.ons-icon').hide();
+
+            $('#ultimoFondo').attr('src', '');
+            $('#ultimoFondo').parent().css('background-image', imagenFinal);
+
+        } else {
+
+            $('#ultimoFondo').parent().parent().find('.ons-icon').show();
+
+            $('#ultimoFondo').attr('src', imagenFinal);
+
+            $('#ultimoFondo').attr('src', '');
+            $('#ultimoFondo').parent().css('background-image', 'none');
+        }
+
         $('#ultimoContenido').html(textoFinal);
-        $('#ultimoFondo').attr('src', imagenFinal);
+
+
 
         $('#ultimoFacebook').unbind('click').on('click', function (event) {
 
@@ -180,7 +201,11 @@ function prev() {
 
 function loadOffine() {
 
-    sliderData = offlineData;
+    //sliderData = offlineData;
+
+    renderPantallas(offlineData);
+
+    /*loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'primer_slide');
 
     loadIntoTemplate('#sliderContainer', sliderData.pantallas, 'slide');
 
@@ -202,13 +227,20 @@ function loadOffine() {
 
     ons.compile($('#sliderContainer')[0]);
 
-    try { navigator.splashscreen.hide(); } catch(error){}
+    try { navigator.splashscreen.hide(); } catch(error){}*/
 }
 
+var img_finales = {
+    imagen_final1: false,
+    imagen_final2: false,
+    imagen_final3: false
+};
 function renderPantallas(data) {
 
     sliderData = data;
 
+    loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'primer_slide');
+
     loadIntoTemplate('#sliderContainer', sliderData.pantallas, 'slide');
 
     loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'ultimo_slide');
@@ -229,7 +261,39 @@ function renderPantallas(data) {
 
     ons.compile($('#sliderContainer')[0]);
 
+    mainSlider.setActiveCarouselItemIndex(1);
+
     try { navigator.splashscreen.hide(); } catch(error){}
+
+
+    var img1 = new Image();
+    img1.onload = function() {
+
+        img_finales.imagen_final1 = this;
+
+        console.log(img_finales.imagen_final1);
+    };
+    img1.src = sliderData.config.imagen_final1;
+
+
+    var img2 = new Image();
+    img2.onload = function() {
+
+        img_finales.imagen_final2 = this;
+
+        console.log(img_finales.imagen_final2);
+    };
+    img2.src = sliderData.config.imagen_final2;
+
+
+    var img3 = new Image();
+    img3.onload = function() {
+
+        img_finales.imagen_final3 = this;
+
+        console.log(img_finales.imagen_final3);
+    };
+    img3.src = sliderData.config.imagen_final3;
 }
 
 function onSliderIMGLoadSimple(img, index) {
@@ -252,7 +316,7 @@ function onSliderIMGLoadSimple(img, index) {
 
 function onSliderIMGLoad(image, index) {
 
-    console.log(image);
+    //console.log(image);
 
     var src = $(image).attr('src');
     var container = $(image).parent();

@@ -1,4 +1,10 @@
 var templates = {
+
+    primer_slide: '' +
+    '<ons-carousel-item class="item-bg loading">' +
+    '<div class="full-screen loading-final animate"><img onload="onSliderIMGLoad(this, 0);" src="splash.png" class="img-restricted" /></div>' +
+    '</ons-carousel-item>',
+
     slide: '' +
     '<ons-carousel-item class="item-bg loading">' +
     '<ons-icon icon="fa-spinner" spin="true" class="ons-icon ons-icon--ion ion-loading-c fa-lg"></ons-icon>' +
@@ -14,7 +20,7 @@ var templates = {
 
     '</div>' +
     '<div class="redes">' +
-    '<div class="button nobutton" onclick="shareViaTwitter(%index%, 1)"><img src="img/app/Twitter-rosa.png"></div>' +
+    //'<div class="button nobutton" onclick="shareViaTwitter(%index%, 1)"><img src="img/app/Twitter-rosa.png"></div>' +
     '<div class="button nobutton" onclick="shareViaTwitter(%index%, 2)"><img src="img/app/twitter.png"></div>' +
     '<div class="button nobutton email-send"><img src="img/app/email.png"></div>' +
     '<div class="button nobutton" onclick="shareViaFacebook(%index%)"><img src="img/app/facebook.png"></div>' +
@@ -35,7 +41,7 @@ var templates = {
     '</div>' +
     '</div>' +
     '<div class="redes animate-all">' +
-    '<div class="button nobutton" id="ultimoTwitter1"><img src="img/app/Twitter blanco-rosa.png"></div>' +
+    //'<div class="button nobutton" id="ultimoTwitter1"><img src="img/app/Twitter blanco-rosa.png"></div>' +
     '<div class="button nobutton" id="ultimoTwitter2"><img src="img/app/Twitter blanco.png"></div>' +
     '<div class="button nobutton email-send"><img src="img/app/MailEnCompatibles.png"></div>' +
     '<div class="button nobutton" id="ultimoFacebook"><img src="img/app/FacebokEnCompatibles.png"></div>' +
@@ -98,7 +104,7 @@ function loadIntoTemplate(div, data, template, labels, height) {
 
         content = $(content);
 
-        container.html('');
+        //container.html('');
 
         container.append(content);
 
