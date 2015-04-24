@@ -41,6 +41,15 @@
     <preference name="StatusBarOverlaysWebView" value="false"/>
     <preference name="StatusBarBackgroundColor" value="#FFFFFF"/>
     <preference name="StatusBarStyle" value="default" />
+    <preference name="DisallowOverscroll" value="true" />
+    
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+        <param name="android-package" value="org.apache.cordova.SplashScreen" />
+    </feature>
 
     <!-- Core plugins -->
     <gap:plugin name="org.apache.cordova.device" />
