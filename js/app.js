@@ -5,8 +5,10 @@ angular.module('MyApp', []);
 module.controller('NavigatorController', function($scope) {
 
     try { StatusBar.hide(); }catch(error){}
+    registerNotifications();
 
     ons.ready(function() {
+
         mainnavigator.pushPage('slider.html', {animation: 'none'});
     });
 });
@@ -201,34 +203,7 @@ function votoAspa() {
 }
 
 function loadOffine() {
-
-    //sliderData = offlineData;
-
     renderPantallas(offlineData);
-
-    /*loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'primer_slide');
-
-    loadIntoTemplate('#sliderContainer', sliderData.pantallas, 'slide');
-
-    loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'ultimo_slide');
-
-    $('.img-restricted').each(function(){
-        $(this).css('width', window.innerWidth + 'px');
-        $(this).css('height', window.innerHeight + 'px');
-    });
-
-    $('.email-send').unbind('click').each(function() {
-
-        $(this).on('click', function (event) {
-
-            contactEmail(sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body);
-
-        });
-    });
-
-    ons.compile($('#sliderContainer')[0]);
-
-    try { navigator.splashscreen.hide(); } catch(error){}*/
 }
 
 var img_finales = {
@@ -298,6 +273,11 @@ function renderPantallas(data) {
         img_finales.imagen_final3 = this;
     };
     img3.src = sliderData.config.imagen_final3;
+
+
+
+
+    verifyNotification();
 }
 
 function onSliderIMGLoadSimple(img, index) {
