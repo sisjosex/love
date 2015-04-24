@@ -68,8 +68,6 @@ function verificarPuntos() {
         }
     }
 
-    console.log(totalPoints);
-
     if( mainSlider.getActiveCarouselItemIndex() == (sliderData.pantallas.length + 1) ) {
 
         var porcentajeCoincidencias = totalPoints / sliderData.pantallas.length;
@@ -101,13 +99,9 @@ function verificarPuntos() {
 
         $('.ultima-pantalla').find('ons-icon').show();
 
-        //console.log(imagenFinal);
-
         textoFinal = textoFinal.replaceAll('{{likes}}', totalPoints).replaceAll('%likes%', totalPoints);
 
         if (img_finales['imagen_final' + img_number] != false) {
-
-            console.log('ya cargo: ' + imagenFinal);
 
             $('#ultimoFondo').parent().parent().find('.ons-icon').hide();
 
@@ -116,8 +110,6 @@ function verificarPuntos() {
             $('#ultimoFondo').parent().addClass('opaque');
 
         } else {
-
-            console.log('esta cargando: ' + imagenFinal);
 
             $('#ultimoFondo').parent().parent().find('.ons-icon').show();
 
@@ -163,8 +155,6 @@ function verificarPuntos() {
 }
 
 function paginar(index) {
-
-    console.log('paginando: ' + index);
 
     if( index > 0 && index <= sliderData.pantallas.length ) {
 
@@ -290,8 +280,6 @@ function renderPantallas(data) {
     img1.onload = function() {
 
         img_finales.imagen_final1 = this;
-
-        console.log(img_finales.imagen_final1);
     };
     img1.src = sliderData.config.imagen_final1;
 
@@ -300,8 +288,6 @@ function renderPantallas(data) {
     img2.onload = function() {
 
         img_finales.imagen_final2 = this;
-
-        console.log(img_finales.imagen_final2);
     };
     img2.src = sliderData.config.imagen_final2;
 
@@ -310,8 +296,6 @@ function renderPantallas(data) {
     img3.onload = function() {
 
         img_finales.imagen_final3 = this;
-
-        console.log(img_finales.imagen_final3);
     };
     img3.src = sliderData.config.imagen_final3;
 }
@@ -335,8 +319,6 @@ function onSliderIMGLoadSimple(img, index) {
 }
 
 function onSliderIMGLoad(image, index) {
-
-    //console.log(image);
 
     var src = $(image).attr('src');
     var container = $(image).parent();
@@ -413,8 +395,6 @@ function shareViaInstagram(txt, is_last) {
         txt = sliderData.pantallas[txt].texto_instagram;
     }
 
-    console.log(txt);
-
     Instagram.isInstalled(function (err, installed) {
 
         if (installed) {
@@ -425,8 +405,6 @@ function shareViaInstagram(txt, is_last) {
                     //console.error(error);
 
                 } else {
-
-                    //console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
 
                     //For android
                     imageLink = res.filePath;
@@ -479,8 +457,6 @@ function shareViaFacebook(txt, is_last) {
         txt = sliderData.pantallas[txt].texto_facebook;
     }
 
-    console.log(txt);
-
     navigator.screenshot.save(function(error,res) {
 
         if (error) {
@@ -488,7 +464,7 @@ function shareViaFacebook(txt, is_last) {
             //console.error(error);
 
         } else {
-            //console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
+
             //For android
             imageLink = res.filePath;
 
@@ -512,8 +488,6 @@ function shareViaTwitter(txt, number, is_last) {
         txt = sliderData.pantallas[txt]['texto_twitter' + number];
     }
 
-    console.log(txt);
-
     navigator.screenshot.save(function(error,res) {
         if (error) {
 
@@ -521,7 +495,6 @@ function shareViaTwitter(txt, number, is_last) {
 
         } else {
 
-            //console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
             //For android
             imageLink = res.filePath;
 
@@ -537,8 +510,6 @@ function shareViaWhatsApp(txt, is_last) {
         txt = sliderData.pantallas[txt].texto_whatsapp;
     }
 
-    console.log(txt);
-
     navigator.screenshot.save(function(error,res) {
         if (error) {
 
@@ -546,7 +517,6 @@ function shareViaWhatsApp(txt, is_last) {
 
         } else {
 
-            //console.log('ok', res.filePath); //should be path/to/myScreenshot.jpg
             //For android
             imageLink = res.filePath;
 
