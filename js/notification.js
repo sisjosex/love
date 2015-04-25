@@ -114,13 +114,13 @@ function showNotification(event, type){
         navigator.notification.alert(
             message,
             function () {
-                redirectToPage(seccion, seccion_id);
+                //redirectToPage(seccion, seccion_id);
             },
             getLabel("alert"),
             getLabel("accept")
         );
     } catch(error) {
-        redirectToPage(seccion, seccion_id);
+        //redirectToPage(seccion, seccion_id);
     }
 }
 
