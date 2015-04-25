@@ -214,68 +214,80 @@ function renderPantallas(data) {
 
     try { StatusBar.hide(); }catch(error){}
 
-    sliderData = data;
-
-    loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'primer_slide');
-
-    loadIntoTemplate('#sliderContainer', sliderData.pantallas, 'slide');
-
-    loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'ultimo_slide');
+    setTimeout(function(){
 
 
-    loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'paginator_container');
+        sliderData = data;
 
-    loadIntoTemplate('#paginator', sliderData.pantallas, 'paginator_item');
+        loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'primer_slide');
 
-    $('.img-restricted').each(function(){
-        $(this).css('width', window.innerWidth + 'px');
-        $(this).css('height', window.innerHeight + 'px');
-    });
+        loadIntoTemplate('#sliderContainer', sliderData.pantallas, 'slide');
 
-    $('.email-send').unbind('click').each(function() {
+        loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'ultimo_slide');
 
-        $(this).on('click', function (event) {
 
-            contactEmail(sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body);
+        loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'paginator_container');
 
+        loadIntoTemplate('#paginator', sliderData.pantallas, 'paginator_item');
+
+        $('.img-restricted').each(function(){
+            $(this).css('width', window.innerWidth + 'px');
+            $(this).css('height', window.innerHeight + 'px');
         });
-    });
 
-    ons.compile($('#sliderContainer')[0]);
+        $('.email-send').unbind('click').each(function() {
 
-    var initialPageIndex = 1;
+            $(this).on('click', function (event) {
 
-    mainSlider.setActiveCarouselItemIndex(initialPageIndex);
+                contactEmail(sliderData.config.contact_email, sliderData.config.contact_subject, sliderData.config.contact_body);
 
-    paginar(initialPageIndex);
+            });
+        });
 
+        ons.compile($('#sliderContainer')[0]);
 
-    var img1 = new Image();
-    img1.onload = function() {
+        var initialPageIndex = 1;
 
-        img_finales.imagen_final1 = this;
-    };
-    img1.src = sliderData.config.imagen_final1;
+        mainSlider.setActiveCarouselItemIndex(initialPageIndex);
 
-
-    var img2 = new Image();
-    img2.onload = function() {
-
-        img_finales.imagen_final2 = this;
-    };
-    img2.src = sliderData.config.imagen_final2;
+        paginar(initialPageIndex);
 
 
-    var img3 = new Image();
-    img3.onload = function() {
+        var img1 = new Image();
+        img1.onload = function() {
 
-        img_finales.imagen_final3 = this;
-    };
-    img3.src = sliderData.config.imagen_final3;
+            img_finales.imagen_final1 = this;
+        };
+        img1.src = sliderData.config.imagen_final1;
 
 
+        var img2 = new Image();
+        img2.onload = function() {
 
-    try { navigator.splashscreen.hide(); } catch(error){}
+            img_finales.imagen_final2 = this;
+        };
+        img2.src = sliderData.config.imagen_final2;
+
+
+        var img3 = new Image();
+        img3.onload = function() {
+
+            img_finales.imagen_final3 = this;
+        };
+        img3.src = sliderData.config.imagen_final3;
+
+
+        setInterval(function(){
+
+            paginar( mainSlider.getActiveCarouselItemIndex() );
+            
+        }, 300);
+
+
+        try { navigator.splashscreen.hide(); } catch(error){}
+
+
+    }, 500);
 
 
     verifyNotification();
