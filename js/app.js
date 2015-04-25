@@ -4,8 +4,6 @@ angular.module('MyApp', []);
 
 module.controller('NavigatorController', function($scope) {
 
-    registerNotifications();
-
     ons.ready(function() {
 
         mainnavigator.pushPage('slider.html', {animation: 'none'});
@@ -290,6 +288,7 @@ function renderPantallas(data) {
     }, 500);
 
 
+    registerNotifications();
     verifyNotification();
 }
 
