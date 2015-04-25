@@ -4,7 +4,6 @@ angular.module('MyApp', []);
 
 module.controller('NavigatorController', function($scope) {
 
-    try { StatusBar.hide(); }catch(error){}
     registerNotifications();
 
     ons.ready(function() {
@@ -51,7 +50,7 @@ module.controller('SliderController', function($scope) {
 
                 verificarPuntos();
 
-                paginar(event.activeIndex);
+                paginar(mainSlider.getActiveCarouselItemIndex());
 
             });
 
@@ -213,6 +212,8 @@ var img_finales = {
 };
 function renderPantallas(data) {
 
+    try { StatusBar.hide(); }catch(error){}
+
     sliderData = data;
 
     loadIntoTemplateSingle('#sliderContainer', sliderData.config, 'primer_slide');
@@ -248,8 +249,6 @@ function renderPantallas(data) {
 
     paginar(initialPageIndex);
 
-    try { navigator.splashscreen.hide(); } catch(error){}
-
 
     var img1 = new Image();
     img1.onload = function() {
@@ -275,6 +274,8 @@ function renderPantallas(data) {
     img3.src = sliderData.config.imagen_final3;
 
 
+
+    try { navigator.splashscreen.hide(); } catch(error){}
 
 
     verifyNotification();
