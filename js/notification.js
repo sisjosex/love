@@ -10,7 +10,9 @@ if( TOKEN_PUSH_NOTIFICATION == '' || TOKEN_PUSH_NOTIFICATION == undefined || TOK
     TOKEN_PUSH_NOTIFICATION = 0;
 }
 
-var DEVICE_UUID = (localStorage.getItem("uuid") !== null || localStorage.getItem("uuid") !== undefined) ? JSON.parse(localStorage.getItem("uuid")) : 0;
+var DEVICE_UUID;
+
+
 var HAVE_NOTIFICATION = false;
 var TYPE_NOTIFICATION = '';
 var EVENT;
