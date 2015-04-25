@@ -178,7 +178,8 @@ ons-carousel-item {
 #ultimoContenido, #ultimoContenido * {
 	font-family: "Gotham-Medium";
 	color:#bf0054;
-	margin-top:20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 .email-section {
@@ -188,7 +189,7 @@ ons-carousel-item {
 .email-section img {
 	max-height:37px;
 	width:auto;
-	margin-top:10px;
+	margin-top:0px;
 }
 
 .slide-border .title {
