@@ -140,11 +140,11 @@ function storeToken(uuid, token, device) {
 
     getJsonPBackground(API_URL + 'updateUUID/', function(response){
 
-        showAlert(response);
+        //showAlert(response);
 
     }, function(error){
 
-        showAlert(error);
+        //showAlert(error);
 
     }, {
         token: TOKEN_PUSH_NOTIFICATION,
