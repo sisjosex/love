@@ -56,7 +56,7 @@
     <gap:plugin name="org.apache.cordova.dialogs" />
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.2.4" />
+    <gap:plugin name="org.li8.inappbrowser" version="0.1" />
     <!-- StatusBar -->
     <gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
 
@@ -87,6 +87,10 @@
     <gap:splash src="res/screen/ios/screen-ipad-portrait.png"           gap:platform="ios"     width="768" height="1024" />
     <gap:splash src="res/screen/ios/screen-ipad-landscape.png"          gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="splash.png" />
+    
+    <!-- pushNotification -->
+    <gap:plugin name="com.phonegap.plugins.pushplugin" />
+    
     <!-- Facebook / Twitter -->
     <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
 
@@ -94,10 +98,10 @@
     <gap:plugin name="com.vladstirbu.cordova.instagram" />
 
     <!-- Email -->
-    <gap:plugin name="de.appplant.cordova.plugin.email-composer" version="0.8.2" />
+    <gap:plugin name="de.appplant.cordova.plugin.email-composer" />
 
     <!-- Screenshoot -->
-    <gap:plugin name="com.darktalker.cordova.screenshot" version="0.1.0" />
+    <gap:plugin name="com.darktalker.cordova.screenshot" />
 
     <plugins>
         <plugin name="InAppBrowser" value="CDVInAppBrowser" />
