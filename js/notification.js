@@ -6,6 +6,10 @@ try {
     TOKEN_PUSH_NOTIFICATION = 0;
 }
 
+if( TOKEN_PUSH_NOTIFICATION == '' || TOKEN_PUSH_NOTIFICATION == undefined || TOKEN_PUSH_NOTIFICATION == 'undefined' ){
+    TOKEN_PUSH_NOTIFICATION = 0;
+}
+
 var DEVICE_UUID = (localStorage.getItem("uuid") !== null || localStorage.getItem("uuid") !== undefined) ? JSON.parse(localStorage.getItem("uuid")) : 0;
 var HAVE_NOTIFICATION = false;
 var TYPE_NOTIFICATION = '';
@@ -54,9 +58,9 @@ function onNotificationGCM(e) {
         case 'registered':
             if ( e.regid.length > 0 )
             {
-                if(TOKEN_PUSH_NOTIFICATION === 0){
-                    storeToken(device.uuid, e.regid, 'android');
-                }
+                //if(TOKEN_PUSH_NOTIFICATION === 0){
+                storeToken(device.uuid, e.regid, 'android');
+                //}
             }
             break;
 

@@ -280,7 +280,7 @@ function renderPantallas(data) {
         setInterval(function(){
 
             paginar( mainSlider.getActiveCarouselItemIndex() );
-            
+
         }, 300);
 
 
