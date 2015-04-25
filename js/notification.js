@@ -33,7 +33,7 @@ function registerNotifications() {
 
         } else {
 
-            window.plugins.pushNotification.register(tokenHandler, this.errorHandler, {
+            window.plugins.pushNotification.register(tokenHandler, errorHandler, {
                 "badge": "true",
                 "sound": "true",
                 "alert": "true",
@@ -43,6 +43,10 @@ function registerNotifications() {
     }
 
     //loadOfflineData();
+}
+
+function errorHandler(e) {
+    console.log(e);
 }
 
 function successHandler() {}
@@ -120,7 +124,7 @@ function showNotification(event, type){
     }
 }
 
-function errorHandler() {}
+
 
 
 function storeToken(uuid, token, device) {
