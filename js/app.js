@@ -287,9 +287,8 @@ function renderPantallas(data) {
 
     }, 500);
 
-
-    registerNotifications();
     verifyNotification();
+    registerNotifications();
 }
 
 function onSliderIMGLoadSimple(img, index) {
