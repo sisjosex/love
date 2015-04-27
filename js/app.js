@@ -75,13 +75,13 @@ function verificarPuntos() {
 
         var img_number = 0;
 
-        if (porcentajeCoincidencias <= 0.25) {
+        if (porcentajeCoincidencias <= 0.33) {
 
             textoFinal = sliderData.config.texto_final1;
             imagenFinal = sliderData.config.imagen_final1;
             img_number = 1;
 
-        } else if (porcentajeCoincidencias <= 0.70) {
+        } else if (porcentajeCoincidencias <= 0.66) {
 
             textoFinal = sliderData.config.texto_final2;
             imagenFinal = sliderData.config.imagen_final2;
