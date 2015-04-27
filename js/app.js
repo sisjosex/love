@@ -125,11 +125,11 @@ function verificarPuntos() {
 
         });
 
-        $('#ultimoTwitter1').unbind('click').on('click', function (event) {
+        /*$('#ultimoTwitter1').unbind('click').on('click', function (event) {
 
             shareViaTwitter(sliderData.config.texto_twitter1, 1, true);
 
-        });
+        });*/
 
         $('#ultimoTwitter2').unbind('click').on('click', function (event) {
 
@@ -145,7 +145,7 @@ function verificarPuntos() {
 
         $('#ultimoWhatsapp').unbind('click').on('click', function (event) {
 
-            shareViaWhatsApp(sliderData.config.texto_instagram, true);
+            shareViaWhatsApp(sliderData.config.texto_whatsapp, true);
 
         });
     }
