@@ -235,16 +235,16 @@ ons-carousel-item {
 }
 
 .button2 {
-    background-color: #bc0052;
-    border-radius: 5px;
-    font-family: "DINPro-Regular";
-    padding-left: 10px;
-    font-size: 15px;
-    margin-bottom: 20px;
-    line-height: 37px;
-    padding-right: 10px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+	background-color: #bc0052;
+	border-radius: 5px;
+	font-family: "DINPro-Regular";
+	padding-left: 20px;
+	font-size: 15px;
+	margin-bottom: 20px;
+	line-height: 37px;
+	padding-right: 20px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 }
 
 #paginator {
