@@ -200,7 +200,10 @@ function votoAspa() {
 }
 
 function loadOffine() {
+    
     renderPantallas(offlineData, true);
+
+    showAlert('Para poder compartir es necesario conectarse a internet', 'Mensaje', 'Aceptar');
 }
 
 var img_finales = {
