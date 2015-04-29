@@ -390,6 +390,11 @@ function onSliderIMGLoad(image, index) {
 
 function shareViaInstagram(txt, is_last) {
 
+    if(!isOnline) {
+        showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
+        return;
+    }
+
     if(!is_last || is_last== undefined) {
 
         txt = sliderData.pantallas[txt].texto_instagram;
@@ -452,6 +457,11 @@ function shareViaInstagram(txt, is_last) {
 
 function shareViaFacebook(txt, is_last) {
 
+    if(!isOnline) {
+        showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
+        return;
+    }
+
     if(!is_last || is_last== undefined) {
 
         txt = sliderData.pantallas[txt].texto_facebook;
@@ -481,6 +491,11 @@ function shareViaFacebook(txt, is_last) {
 
 function shareViaTwitter(txt, number, is_last) {
 
+    if(!isOnline) {
+        showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
+        return;
+    }
+
     if(is_last == false || is_last== undefined) {
 
         txt = sliderData.pantallas[txt]['texto_twitter' + number];
@@ -502,6 +517,11 @@ function shareViaTwitter(txt, number, is_last) {
 }
 
 function shareViaWhatsApp(txt, is_last) {
+
+    if(!isOnline) {
+        showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
+        return;
+    }
 
     if(!is_last || is_last== undefined) {
 
