@@ -203,7 +203,7 @@ function loadOffine() {
     
     renderPantallas(offlineData, true);
 
-    showAlert('Para poder compartir es necesario conectarse a internet', 'Mensaje', 'Aceptar');
+    //showAlert('Para poder compartir es necesario conectarse a internet', 'Mensaje', 'Aceptar');
 }
 
 var img_finales = {
@@ -285,7 +285,7 @@ function renderPantallas(data, is_offline) {
         }, 300);
 
         if(is_offline == true) {
-            $('.redes').hide();
+            //$('.redes').hide();
         }
 
 
