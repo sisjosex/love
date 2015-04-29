@@ -200,6 +200,8 @@ function votoAspa() {
 }
 
 function loadOffine() {
+
+    isOnline = false;
     
     renderPantallas(offlineData, true);
 
