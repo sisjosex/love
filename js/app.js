@@ -468,8 +468,6 @@ function shareViaFacebook(txt, is_last) {
 
             window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(txt, 'file://'+imageLink, null /* url */, 'Mitica Love', function() {
 
-                showAlert("Se compartió exitosamente", "Aviso", "Aceptar");
-
             }, function(errormsg){
 
                 //alert(errormsg);
