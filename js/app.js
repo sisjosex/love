@@ -393,7 +393,7 @@ function shareViaInstagram(txt, is_last) {
             navigator.screenshot.save(function(error,res) {
                 if (error) {
 
-                    //console.error(error);
+                    showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
 
                 } else {
 
@@ -452,7 +452,7 @@ function shareViaFacebook(txt, is_last) {
 
         if (error) {
 
-            //console.error(error);
+            showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
 
         } else {
 
@@ -482,7 +482,7 @@ function shareViaTwitter(txt, number, is_last) {
     navigator.screenshot.save(function(error,res) {
         if (error) {
 
-            //console.error(error);
+            showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
 
         } else {
 
@@ -504,7 +504,7 @@ function shareViaWhatsApp(txt, is_last) {
     navigator.screenshot.save(function(error,res) {
         if (error) {
 
-            //console.error(error);
+            showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
 
         } else {
 
@@ -540,16 +540,22 @@ function onOnline() {
 
     isOnline = true;
 
-    $('.redes').show();
+    //$('.redes').show();
 }
 
 function onOffline() {
 
     isOnline = false;
 
-    $('.redes').hide();
+    //$('.redes').hide();
 }
 
 function openWeb() {
+
+    if(!isOnline) {
+        showAlert('Para ir a la página web es necesario conectarse a internet.', 'Error', 'Aceptar');
+        return;
+    }
+
     window.open(sliderData.config.web_url, '_blank', 'location=yes,closebuttoncaption=Cerrar');
 }
