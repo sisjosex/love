@@ -458,7 +458,7 @@ function shareViaInstagram(txt, is_last) {
 function shareViaFacebook(txt, is_last) {
 
     if(!isOnline) {
-        showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Alerta', 'Aceptar');
+        showAlert('Para compartir esta propuesta necesitas conexión a internet', 'Alerta', 'Aceptar');
         return;
     }
 
