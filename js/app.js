@@ -391,7 +391,7 @@ function onSliderIMGLoad(image, index) {
 function shareViaInstagram(txt, is_last) {
 
     if(!isOnline) {
-        showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
+        showAlert('Para compartir esta propuesta necesitas conexión a internet', 'Error', 'Aceptar');
         return;
     }
 
@@ -407,7 +407,7 @@ function shareViaInstagram(txt, is_last) {
             navigator.screenshot.save(function(error,res) {
                 if (error) {
 
-                    showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
+                    //showAlert('Para compartir esta propuesta necesitas conexión a internet', 'Error', 'Aceptar');
 
                 } else {
 
@@ -471,7 +471,7 @@ function shareViaFacebook(txt, is_last) {
 
         if (error) {
 
-            showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
+            //showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
 
         } else {
 
@@ -492,7 +492,7 @@ function shareViaFacebook(txt, is_last) {
 function shareViaTwitter(txt, number, is_last) {
 
     if(!isOnline) {
-        showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
+        showAlert('Para compartir esta propuesta necesitas conexión a internet', 'Error', 'Aceptar');
         return;
     }
 
@@ -504,7 +504,7 @@ function shareViaTwitter(txt, number, is_last) {
     navigator.screenshot.save(function(error,res) {
         if (error) {
 
-            showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
+            //showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
 
         } else {
 
@@ -519,7 +519,7 @@ function shareViaTwitter(txt, number, is_last) {
 function shareViaWhatsApp(txt, is_last) {
 
     if(!isOnline) {
-        showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
+        showAlert('Para compartir esta propuesta necesitas conexión a internet', 'Error', 'Aceptar');
         return;
     }
 
@@ -531,7 +531,7 @@ function shareViaWhatsApp(txt, is_last) {
     navigator.screenshot.save(function(error,res) {
         if (error) {
 
-            showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
+            //showAlert('Para compartir en redes sociales, es necesario conectarse a internet.', 'Error', 'Aceptar');
 
         } else {
 
