@@ -75,13 +75,13 @@ function verificarPuntos() {
 
         var img_number = 0;
 
-        if (porcentajeCoincidencias <= 0.33) {
+        if (porcentajeCoincidencias <= 0.30) {
 
             textoFinal = sliderData.config.texto_final1;
             imagenFinal = sliderData.config.imagen_final1;
             img_number = 1;
 
-        } else if (porcentajeCoincidencias <= 0.66) {
+        } else if (porcentajeCoincidencias <= 0.80) {
 
             textoFinal = sliderData.config.texto_final2;
             imagenFinal = sliderData.config.imagen_final2;
@@ -200,7 +200,10 @@ function votoAspa() {
 }
 
 function loadOffine() {
-    renderPantallas(offlineData);
+    
+    renderPantallas(offlineData, true);
+
+    showAlert('Para poder compartir es necesario conectarse a internet', 'Mensaje', 'Aceptar');
 }
 
 var img_finales = {
@@ -208,7 +211,7 @@ var img_finales = {
     imagen_final2: false,
     imagen_final3: false
 };
-function renderPantallas(data) {
+function renderPantallas(data, is_offline) {
 
     try { StatusBar.hide(); }catch(error){}
 
@@ -280,6 +283,10 @@ function renderPantallas(data) {
             paginar( mainSlider.getActiveCarouselItemIndex() );
 
         }, 300);
+
+        if(is_offline == true) {
+            $('.redes').hide();
+        }
 
 
         try { navigator.splashscreen.hide(); } catch(error){}
