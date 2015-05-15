@@ -28,7 +28,7 @@ function registerNotifications() {
 
         if (device.platform === 'android' || device.platform === 'Android') {
 
-            window.plugins.pushNotification.register(successHandler, this.errorHandler, {
+            window.plugins.pushNotification.register(successHandler, errorHandler, {
                 "senderID": "252875722598",
                 "ecb": "onNotificationGCM"
             });
