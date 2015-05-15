@@ -296,7 +296,7 @@ function renderPantallas(data, is_offline) {
 
     }, 500);
 
-    verifyNotification();
+    //verifyNotification();
     registerNotifications();
 }
 

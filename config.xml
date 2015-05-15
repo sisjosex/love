@@ -89,7 +89,8 @@
     <gap:splash src="splash.png" />
     
     <!-- pushNotification -->
-    <gap:plugin name="com.phonegap.plugins.pushplugin" />
+    <!--<gap:plugin name="com.phonegap.plugins.pushplugin" />-->
+    <gap:plugin name="com.sharinglabs.cordova.plugin.pushplugin" />
     
     <!-- Facebook / Twitter -->
     <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
